@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Security;
 using UnityEngine;
 
-public class Camera : MonoBehaviour
+public class Camara : MonoBehaviour
 {
 
     private float horizontalAxis;
@@ -15,11 +15,10 @@ public class Camera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        camera = transform.Find("Camera");
+        camera = transform.Find("Camara");
         Cursor.lockState = CursorLockMode.Locked;   
     }
 
-    // Update is called once per frame
     void Update()
     {
         horizontalAxis = Input.GetAxis("Mouse X");
