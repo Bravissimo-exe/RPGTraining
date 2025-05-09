@@ -1,16 +1,14 @@
 using UnityEngine;
 
-public class Portador : SistemaDeVida
+public abstract class Portador:MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected SistemaDeVida sistemaDeVida;
+
+    protected Portador(SistemaDeVida sistemaDeVida)
     {
-        
+        this.sistemaDeVida = sistemaDeVida;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
+    
 }

@@ -3,21 +3,28 @@ using UnityEngine.UI;
 
 public class PortadorNoJugable : Portador
 {
+    
 
     [SerializeField] private Slider barraVida;
 
+    public PortadorNoJugable(SistemaDeVida sistemaDeVida) : base(sistemaDeVida)
+    {
+        
+    }
+
     void Start()
     {
-        valorActual = valorMax;
-        barraVida.value = valorActual;
+        
+        sistemaDeVida.ValorActual = sistemaDeVida.ValorMax;
+        barraVida.value = sistemaDeVida.ValorActual;
     }
 
     // Update is called once per frame
     void Update()
     {
-        barraVida.value = valorActual;
+        barraVida.value = sistemaDeVida.ValorActual;
 
-        if(barraVida.value == 0){
+        if(barraVida.value == sistemaDeVida.ValorMin){
             muelto();
         }
     }
