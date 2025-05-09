@@ -1,51 +1,28 @@
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PortadorNoJugable : Portador
 {
 
-    [SerializeField] private GameObject portadorNoJugable;
-    [SerializeField] private GameObject prefab;
-    
-
-    private float _tiempoReaparicion = 3f;
-    private float _tiempoDestruccion = 0f;
-
-    private bool _vivo = true;
-    public PortadorNoJugable(SistemaDeVida sistemaVida) : base(sistemaVida)
-    {
-        sistemaVida.ValorMax = 100;
-        sistemaVida.ValorMin = 0;
-    }
+    [SerializeField] private Slider barraVida;
 
     void Start()
     {
-
+        valorActual = valorMax;
+        barraVida.value = valorActual;
     }
 
+    // Update is called once per frame
     void Update()
     {
-        if(!_vivo){
-            _tiempoDestruccion += Time.deltaTime;
-            if(_tiempoDestruccion >= _tiempoReaparicion){
-                Instantiate(gameObject, transform.position, Quaternion.identity);
+        barraVida.value = valorActual;
 
-                sistemaVida.ValorActual = sistemaVida.ValorMax;
-                _vivo = true;
-            }
-        }   
-    }
-
-    public void Reaparecer(){
-        
-    }
-
-
-    public void Destruir(){
-        if(sistemaVida.ValorActual <= sistemaVida.ValorMin){
-            Destroy(portadorNoJugable);
-            _vivo = false;
+        if(barraVida.value == 0){
+            muelto();
         }
-    }  
+    }
+
+    private void muelto(){
+        Destroy(gameObject);
+    }
 }
