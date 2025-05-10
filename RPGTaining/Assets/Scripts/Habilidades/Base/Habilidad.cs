@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Habilidad : MonoBehaviour
+public abstract class Habilidad : MonoBehaviour
 {
     [SerializeField] private string nombre;
     [SerializeField] private Sprite icono;
@@ -23,5 +23,7 @@ public class Habilidad : MonoBehaviour
     public string Descripcion { get => descripcion; set => descripcion = value; }
     public float Consumo { get => consumo; set => consumo = value; }
     public float CoolDown { get => coolDown; set => coolDown = value; }
+
+    public abstract void Lanzar();
 
 }
