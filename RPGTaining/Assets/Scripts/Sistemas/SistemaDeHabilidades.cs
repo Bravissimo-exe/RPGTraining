@@ -10,8 +10,6 @@ public class SistemaDeHabilidades : MonoBehaviour
         habilidades = new List<Habilidad>();
     }
 
-    
-
     public List<Habilidad> Habilidades { 
         get {
             if(habilidades == null)

@@ -9,6 +9,11 @@ public class BolaDeLuz : Habilidad
     private Coroutine rutinaCarga;
     private MonoBehaviour controladorMono;
 
+    //Referencias para Instanciar las habilidades
+    private GameObject prefabInstanciable;
+    private Transform prefabPosicion;
+
+
 
     public BolaDeLuz(string nombre, Sprite icono, string descripcion, float consumo, float coolDown) : base(nombre, icono, descripcion, consumo, coolDown)
     {
@@ -32,7 +37,9 @@ public class BolaDeLuz : Habilidad
         rutinaCarga = mono.StartCoroutine(Cargar());
     }
 
-    public void SoltarCarga(){
+    public void SoltarCarga(GameObject prefab, Transform posicion){
+        prefabInstanciable = prefab;
+        prefabPosicion = posicion;
 
         if (rutinaCarga != null)
         {

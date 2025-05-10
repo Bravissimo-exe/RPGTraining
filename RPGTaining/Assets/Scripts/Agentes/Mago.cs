@@ -4,6 +4,11 @@ using UnityEngine.InputSystem;
 
 public class Mago : PortadorJugable
 {
+
+    //Referencias
+    [SerializeField] private GameObject bolaLuz;
+    [SerializeField] private Transform shootPoint;
+
     public Mago(string nombre, SistemaDeVida sistemaDeVida, SistemaDeMana sistemaDeMana, SistemaDeHabilidades sistemaDeHabilidades) : base(nombre, sistemaDeVida, sistemaDeMana, sistemaDeHabilidades){
     }
     //Unity obviamente no usa el constructor cuando se instancia un MonoBehaviour
@@ -19,6 +24,8 @@ public class Mago : PortadorJugable
     }
 
     void Update(){
+
+        //Habilidad 1
         if(Input.GetKeyDown(KeyCode.Alpha1)){
             if(sistemaDeHabilidades.Habilidades[0] is BolaDeLuz habilidad1){
                 habilidad1.EmpezarCarga(this);
@@ -26,9 +33,14 @@ public class Mago : PortadorJugable
         }
         else if(Input.GetKeyUp(KeyCode.Alpha1)){
             if(sistemaDeHabilidades.Habilidades[0] is BolaDeLuz habilidad1){
-                habilidad1.SoltarCarga();
+                habilidad1.SoltarCarga(bolaLuz, shootPoint);
             }
         }
+
+        //Habilidad 2
+
+
+        //Habilidad 3
     }
 
     private void SetupSistemas(){
