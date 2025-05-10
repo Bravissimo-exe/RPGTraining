@@ -17,6 +17,14 @@ public abstract class Habilidad : MonoBehaviour
         this.Consumo = consumo;
         this.CoolDown = coolDown;
     }
+    public Habilidad(string nombre)
+    {
+        this.Nombre = nombre;
+        this.Icono = null;
+        this.Descripcion = "Descripcion de habilidad genérica";
+        this.Consumo = 10;
+        this.CoolDown = 5f;
+    }
 
     public string Nombre { get => nombre; set => nombre = value; }
     public Sprite Icono { get => icono; set => icono = value; }

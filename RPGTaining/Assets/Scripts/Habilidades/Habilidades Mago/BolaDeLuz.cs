@@ -14,6 +14,10 @@ public class BolaDeLuz : Habilidad
     {
     }
 
+    public BolaDeLuz(string nombre) : base(nombre, null, "Descripcion de habilidad genérica", 10f, 5f)
+    {
+    }
+
     private IEnumerator Cargar(){
         nivelCarga = 0;
         while(nivelCarga < cargaMaxima){

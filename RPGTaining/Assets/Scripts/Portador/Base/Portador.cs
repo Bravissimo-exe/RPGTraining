@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class Portador:MonoBehaviour
+public abstract class Portador : MonoBehaviour
 {
     protected SistemaDeVida sistemaDeVida;
 

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SistemaDeHabilidades : MonoBehaviour
@@ -7,8 +8,15 @@ public class SistemaDeHabilidades : MonoBehaviour
 
     public SistemaDeHabilidades(List<Habilidad> habilidades)
     {
-        this.habilidades = new List<Habilidad>();
+        this.Habilidades = new List<Habilidad>();
     }
 
-    
+    public List<Habilidad> Habilidades { 
+        get => new List<Habilidad>(habilidades);
+        set => habilidades = value;
+    }
+
+    public void añadirHabilidad(Habilidad habilidad){
+        List<Habilidad> nuevaLista = Habilidades;
+    }
 }
