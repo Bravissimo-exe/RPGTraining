@@ -11,7 +11,7 @@ public class Mago : PortadorJugable
 
     void Awake(){
         SetupSistemas();
-        sistemaDeHabilidades.añadirHabilidad(new BolaDeLuz("Bola de Luz"));
+        sistemaDeHabilidades.AñadirHabilidad(new BolaDeLuz("Bola de Luz"));
     }
 
     void Start(){

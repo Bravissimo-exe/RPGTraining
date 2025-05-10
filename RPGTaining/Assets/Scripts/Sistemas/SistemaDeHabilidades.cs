@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class SistemaDeHabilidades : MonoBehaviour
 {
-    [SerializeField] private List<Habilidad> habilidades;
+    private List<Habilidad> habilidades;
 
-    public SistemaDeHabilidades(){}
+    public SistemaDeHabilidades(){
+        habilidades = new List<Habilidad>();
+    }
 
     
 
     public List<Habilidad> Habilidades { 
-        get => new List<Habilidad>(habilidades);
+        get {
+            if(habilidades == null)
+                habilidades = new List<Habilidad>();
+            return habilidades;
+        }
         set => habilidades = value;
     }
 
-    public void añadirHabilidad(Habilidad habilidad){
-        List<Habilidad> listaHabilidades = Habilidades;
-        listaHabilidades.Add(habilidad);
+    public void AñadirHabilidad(Habilidad habilidad){
+        Habilidades.Add(habilidad);
     }
 }
