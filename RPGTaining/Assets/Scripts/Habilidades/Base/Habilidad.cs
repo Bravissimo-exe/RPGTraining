@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class Habilidad : MonoBehaviour
+public abstract class Habilidad
 {
     [SerializeField] private string nombre;
     [SerializeField] private Sprite icono;

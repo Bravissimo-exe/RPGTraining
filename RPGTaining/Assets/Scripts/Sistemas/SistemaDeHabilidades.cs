@@ -6,10 +6,9 @@ public class SistemaDeHabilidades : MonoBehaviour
 {
     [SerializeField] private List<Habilidad> habilidades;
 
-    public SistemaDeHabilidades(List<Habilidad> habilidades)
-    {
-        this.Habilidades = new List<Habilidad>();
-    }
+    public SistemaDeHabilidades(){}
+
+    
 
     public List<Habilidad> Habilidades { 
         get => new List<Habilidad>(habilidades);
@@ -17,6 +16,7 @@ public class SistemaDeHabilidades : MonoBehaviour
     }
 
     public void añadirHabilidad(Habilidad habilidad){
-        List<Habilidad> nuevaLista = Habilidades;
+        List<Habilidad> listaHabilidades = Habilidades;
+        listaHabilidades.Add(habilidad);
     }
 }

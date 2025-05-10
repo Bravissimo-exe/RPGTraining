@@ -19,7 +19,7 @@ public class BolaDeLuz : Habilidad
     }
 
     private IEnumerator Cargar(){
-        nivelCarga = 0;
+        nivelCarga = 1;
         while(nivelCarga < cargaMaxima){
             yield return new WaitForSeconds(tiempoPorCarga);
             nivelCarga++;
@@ -50,13 +50,15 @@ public class BolaDeLuz : Habilidad
         {
             case 1:
                 //Instanciar Carga 1
-                //Instantiate(GameObject, Tra)
+                Debug.Log("Lancé una bola de luz de 1 carga");
                 break;
             case 2:
                 //Instanciar Carga 2
+                Debug.Log("Lancé una bola de luz de 2 cargas");
                 break;
             case 3:
                 //Instanciar Carga 3
+                Debug.Log("Lancé una bola de luz de 3 cargas");
                 break;
         }
         nivelCarga = 0;

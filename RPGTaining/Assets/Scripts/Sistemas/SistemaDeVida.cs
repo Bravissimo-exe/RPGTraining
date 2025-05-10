@@ -6,6 +6,11 @@ public class SistemaDeVida : SistemaDeEstadisticas
     {
     }
 
+    public SistemaDeVida() : base ()
+    {
+    }
+
+
     public virtual void regenerarVida(int cantidad){
          ValorActual+= cantidad;
     }
