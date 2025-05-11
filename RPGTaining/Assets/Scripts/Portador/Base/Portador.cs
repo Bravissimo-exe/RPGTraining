@@ -5,9 +5,6 @@ using UnityEngine.UI;
 
 public abstract class Portador : MonoBehaviour
 {
-
-
-
     protected SistemaDeVida sistemaDeVida;
 
     protected Portador(SistemaDeVida sistemaVida)
@@ -21,3 +18,4 @@ public abstract class Portador : MonoBehaviour
         sistemaDeVida.AñadirVidaUi(gameObject, sistemaDeVida.ValorMax);
     }
 }
+

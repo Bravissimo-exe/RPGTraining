@@ -21,7 +21,6 @@ public class PortadorJugable : Portador
         this.sistemaDeHabilidades = sistemaDeHabilidades;
     }
 
-
     void Awake()
     {
         inicializarVida(100);

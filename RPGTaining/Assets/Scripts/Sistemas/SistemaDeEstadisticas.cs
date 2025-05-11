@@ -33,7 +33,4 @@ public abstract class SistemaDeEstadisticas : MonoBehaviour
     public int ValorMin { get => valorMin; set => valorMin = value; }
     public int ValorActual { get => valorActual; set => valorActual = value; }
 
-
-    
-
 }
