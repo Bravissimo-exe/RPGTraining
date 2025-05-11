@@ -10,10 +10,6 @@ public abstract class SistemaDeEstadisticas : MonoBehaviour
     public SistemaDeEstadisticas(int valorMax)
     {
         this.ValorMax = valorMax;
-<<<<<<< Updated upstream
-        this.ValorMin = valorMin;
-        this.ValorActual = ValorMax;
-=======
         this.ValorMin = 0;
         this.ValorActual = valorMax;
     }
@@ -30,7 +26,7 @@ public abstract class SistemaDeEstadisticas : MonoBehaviour
         this.ValorMax = valorMax;
         this.ValorMin = valorMin;
         this.valorActual = valorMax;
->>>>>>> Stashed changes
+
     }
 
     public int ValorMax { get => valorMax; set => valorMax = value; }

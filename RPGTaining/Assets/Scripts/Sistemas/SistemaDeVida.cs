@@ -6,8 +6,7 @@ using UnityEngine.UI;
 public class SistemaDeVida : SistemaDeEstadisticas
 {
 
-<<<<<<< Updated upstream
-=======
+
     protected GameObject vidaPrefab;
     protected Slider barraVida;
 
@@ -21,9 +20,8 @@ public class SistemaDeVida : SistemaDeEstadisticas
         
     }
 
->>>>>>> Stashed changes
     public virtual void regenerarVida(int cantidad){
-         valorActual+= cantidad;
+         ValorActual+= cantidad;
     }
 
     public void AñadirVidaUi(GameObject Padre, int vidaMax){

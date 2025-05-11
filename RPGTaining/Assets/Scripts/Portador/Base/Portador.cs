@@ -16,7 +16,6 @@ public abstract class Portador : MonoBehaviour
     }
 
     protected void inicializarVida(int vidaMax){
-        
         sistemaDeVida = new SistemaDeVida(vidaMax);
         Debug.Log(sistemaDeVida.ValorActual);
         sistemaDeVida.AñadirVidaUi(gameObject, sistemaDeVida.ValorMax);
