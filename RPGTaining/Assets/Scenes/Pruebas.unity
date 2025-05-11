@@ -381,6 +381,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1811481300}
+  - {fileID: 1761733525}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &240935298
@@ -408,8 +409,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67429d6c922535c44b74b309b82d9593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bolaLuz: {fileID: 0}
-  shootPoint: {fileID: 0}
+  prefabsBolas:
+  - {fileID: 253874949236609186, guid: 0b1751d558cc11845810a86bca1409bb, type: 3}
+  - {fileID: 253874949236609186, guid: fcc193826ddf5b64ea85f8b4e8354689, type: 3}
+  - {fileID: 253874949236609186, guid: ec0afd9504f91bb45956c195d49e62bc, type: 3}
+  shootPoint: {fileID: 1761733525}
+  rotacionCamara: {fileID: 1811481300}
 --- !u!1 &425110192
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,6 +945,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1573240278}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1761733524
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1761733525}
+  m_Layer: 0
+  m_Name: shootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1761733525
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761733524}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.52, z: 0.933}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 240935297}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1811481297
 GameObject:
   m_ObjectHideFlags: 0

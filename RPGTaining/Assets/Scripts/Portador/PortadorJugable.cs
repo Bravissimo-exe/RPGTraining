@@ -13,7 +13,6 @@ public class PortadorJugable : Portador
         this.sistemaDeHabilidades = sistemaDeHabilidades;
     }
 
-
     void Awake()
     {
         añadirMovimiento();

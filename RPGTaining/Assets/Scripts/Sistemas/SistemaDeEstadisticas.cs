@@ -25,7 +25,4 @@ public abstract class SistemaDeEstadisticas
     public int ValorMin { get => valorMin; set => valorMin = value; }
     public int ValorActual { get => valorActual; set => valorActual = value; }
 
-
-    
-
 }

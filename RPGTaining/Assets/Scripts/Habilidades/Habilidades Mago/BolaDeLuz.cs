@@ -1,8 +1,12 @@
 using System.Collections;
+using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class BolaDeLuz : Habilidad
 {
+
+    private int dañoBase = 10;
     private int nivelCarga = 0;
     private int cargaMaxima = 3;
     private float tiempoPorCarga = 1f;
@@ -10,8 +14,9 @@ public class BolaDeLuz : Habilidad
     private MonoBehaviour controladorMono;
 
     //Referencias para Instanciar las habilidades
-    private GameObject prefabInstanciable;
+    private List<GameObject> prefabsBolas;
     private Transform prefabPosicion;
+    private Transform prefabRotacion;
 
 
 
@@ -37,9 +42,10 @@ public class BolaDeLuz : Habilidad
         rutinaCarga = mono.StartCoroutine(Cargar());
     }
 
-    public void SoltarCarga(GameObject prefab, Transform posicion){
-        prefabInstanciable = prefab;
+    public void SoltarCarga(List<GameObject> prefabs, Transform posicion, Transform rotacion){
+        prefabsBolas = prefabs;
         prefabPosicion = posicion;
+        prefabRotacion = rotacion;
 
         if (rutinaCarga != null)
         {
@@ -53,21 +59,38 @@ public class BolaDeLuz : Habilidad
 
     public override void Lanzar()
     {
+        GameObject instanciaBola;
+        Rigidbody rb;
         switch (nivelCarga)
         {
             case 1:
                 //Instanciar Carga 1
                 Debug.Log("Lancé una bola de luz de 1 carga");
+                instanciaBola = Object.Instantiate(prefabsBolas[0], prefabPosicion.position, prefabRotacion.rotation);
                 break;
             case 2:
                 //Instanciar Carga 2
                 Debug.Log("Lancé una bola de luz de 2 cargas");
+                instanciaBola = Object.Instantiate(prefabsBolas[1], prefabPosicion.position, prefabRotacion.rotation);
                 break;
             case 3:
                 //Instanciar Carga 3
                 Debug.Log("Lancé una bola de luz de 3 cargas");
+                instanciaBola = Object.Instantiate(prefabsBolas[2], prefabPosicion.position, prefabRotacion.rotation);
+                break;
+            default:
+                instanciaBola = null;
                 break;
         }
+
+        if(instanciaBola != null){
+            instanciaBola.GetComponent<BolaLuzImpacto>().Daño = dañoBase * nivelCarga;
+            Object.Destroy(instanciaBola, 5f);
+            rb = instanciaBola.GetComponent<Rigidbody>();
+            rb.linearVelocity = prefabRotacion.forward * 10f;
+        }
+        
+
         nivelCarga = 0;
     }
 }

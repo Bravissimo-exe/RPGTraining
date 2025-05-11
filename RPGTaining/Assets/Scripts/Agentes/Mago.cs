@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,11 +6,15 @@ public class Mago : PortadorJugable
 {
 
     //Referencias
-    [SerializeField] private GameObject bolaLuz;
+    [SerializeField] private List<GameObject> prefabsBolas = new List<GameObject>();
     [SerializeField] private Transform shootPoint;
+    [SerializeField] private Transform rotacionCamara;
 
     public Mago(string nombre, SistemaDeVida sistemaDeVida, SistemaDeMana sistemaDeMana, SistemaDeHabilidades sistemaDeHabilidades) : base(nombre, sistemaDeVida, sistemaDeMana, sistemaDeHabilidades){
     }
+    
+
+
     //Unity obviamente no usa el constructor cuando se instancia un MonoBehaviour
     //Por lo que las cosas las debemos inicializar en el Awake
 
@@ -20,7 +24,6 @@ public class Mago : PortadorJugable
     }
 
     void Start(){
-
     }
 
     void Update(){
@@ -33,7 +36,7 @@ public class Mago : PortadorJugable
         }
         else if(Input.GetKeyUp(KeyCode.Alpha1)){
             if(sistemaDeHabilidades.Habilidades[0] is BolaDeLuz habilidad1){
-                habilidad1.SoltarCarga(bolaLuz, shootPoint);
+                habilidad1.SoltarCarga(prefabsBolas, shootPoint, rotacionCamara);
             }
         }
 

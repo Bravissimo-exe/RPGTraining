@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class Portador : MonoBehaviour
+public abstract class Portador : MonoBehaviour, IDañable
 {
     protected SistemaDeVida sistemaDeVida;
 
@@ -9,6 +9,8 @@ public abstract class Portador : MonoBehaviour
         this.sistemaDeVida = sistemaDeVida;
     }
 
-    
-    
+    public void RecibirDaño(int daño)
+    {
+        sistemaDeVida.ValorActual -= daño;
+    }
 }
