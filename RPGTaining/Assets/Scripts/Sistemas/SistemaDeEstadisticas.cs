@@ -1,24 +1,36 @@
 using UnityEngine;
 
-public abstract class SistemaDeEstadisticas
+public abstract class SistemaDeEstadisticas : MonoBehaviour
 {
     [Header("Configuracion Base")]
-    [SerializeField] protected int valorMax = 100;
-    [SerializeField] protected int valorMin = 0;
-    [SerializeField] protected int valorActual;
+    [SerializeField] private int valorMax = 100;
+    [SerializeField] private int valorMin = 0;
+    [SerializeField] private int valorActual;
 
-    public SistemaDeEstadisticas(int valorMax, int valorMin, int valorActual)
+    public SistemaDeEstadisticas(int valorMax)
     {
         this.ValorMax = valorMax;
+<<<<<<< Updated upstream
         this.ValorMin = valorMin;
+        this.ValorActual = ValorMax;
+=======
+        this.ValorMin = 0;
+        this.ValorActual = valorMax;
+    }
+
+    public SistemaDeEstadisticas(int valorMax, int valorActual)
+    {
+        this.ValorMax = valorMax;
+        this.ValorMin = 0;
         this.ValorActual = valorActual;
     }
 
     protected SistemaDeEstadisticas()
     {
-        this.valorMax = 100;
-        this.valorMin = 0;
+        this.ValorMax = valorMax;
+        this.ValorMin = valorMin;
         this.valorActual = valorMax;
+>>>>>>> Stashed changes
     }
 
     public int ValorMax { get => valorMax; set => valorMax = value; }
