@@ -10,6 +10,7 @@ public class BolaDeLuz : Habilidad
     private int nivelCarga = 0;
     private int cargaMaxima = 3;
     private float tiempoPorCarga = 1f;
+    private float ultimoCast;
     private Coroutine rutinaCarga;
     private MonoBehaviour controladorMono;
 
@@ -26,6 +27,8 @@ public class BolaDeLuz : Habilidad
 
     public BolaDeLuz(string nombre) : base(nombre, null, "Descripcion de habilidad genérica", 10f, 5f)
     {
+    }
+    public BolaDeLuz() : base("Bola de Luz", null, "Descripción Bola de Luz", 10f, 3f){
     }
 
     private IEnumerator Cargar(){
@@ -90,7 +93,7 @@ public class BolaDeLuz : Habilidad
             rb.linearVelocity = prefabRotacion.forward * 10f;
         }
         
-
+        ultimoCast = Time.time;
         nivelCarga = 0;
     }
 }
