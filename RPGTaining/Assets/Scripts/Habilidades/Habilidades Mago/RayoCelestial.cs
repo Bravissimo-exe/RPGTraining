@@ -1,16 +1,23 @@
 using UnityEngine;
 
-public class RayoCelestial : MonoBehaviour
+public class RayoCelestial : Habilidad
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public RayoCelestial(string nombre) : base(nombre)
     {
-        
     }
 
-    // Update is called once per frame
-    void Update()
+    public RayoCelestial(string nombre, Sprite icono, string descripcion, float consumo, float coolDown) : base(nombre, icono, descripcion, consumo, coolDown)
     {
-        
+    }
+
+    public RayoCelestial() : base("Rayo Celestial", null, "Descripcion Rayo Celestial", 30, 15f){
+
+    }
+
+    
+
+    public override void Lanzar()
+    {
+        throw new System.NotImplementedException();
     }
 }

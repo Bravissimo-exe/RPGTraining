@@ -13,4 +13,10 @@ public abstract class Portador : MonoBehaviour, IDañable
     {
         sistemaDeVida.ValorActual -= daño;
     }
+
+    public void Curar(int cantidad){
+        sistemaDeVida.ValorActual += cantidad;
+        if(sistemaDeVida.ValorActual > sistemaDeVida.ValorMax)
+            sistemaDeVida.ValorActual = sistemaDeVida.ValorMax;
+    }
 }
