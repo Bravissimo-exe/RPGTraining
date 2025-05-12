@@ -60,14 +60,14 @@ public class Mago : PortadorJugable
     }
 
     public void SetupSistemas(){
-        sistemaDeVida = new SistemaDeVida();
+        
         sistemaDeMana = new SistemaDeMana();
         sistemaDeHabilidades = gameObject.AddComponent<SistemaDeHabilidades>();
 
     }
 
     private bool Disponible1(){
-        if(sistemaDeMana.ValorActual >= sistemaDeHabilidades.Habilidades[0].Consumo){
+        if(sistemaDeMana.valorActual >= sistemaDeHabilidades.Habilidades[0].Consumo){
             if(Time.time - _ultimoCast1 >= sistemaDeHabilidades.Habilidades[0].CoolDown){
                 return true;
             }
@@ -76,7 +76,7 @@ public class Mago : PortadorJugable
     }
 
     private bool Disponible2(){
-        if(sistemaDeMana.ValorActual >= sistemaDeHabilidades.Habilidades[1].Consumo){
+        if(sistemaDeMana.valorActual >= sistemaDeHabilidades.Habilidades[1].Consumo){
             if(Time.time - _ultimoCast1 >= sistemaDeHabilidades.Habilidades[1].CoolDown){
                 return true;
             }

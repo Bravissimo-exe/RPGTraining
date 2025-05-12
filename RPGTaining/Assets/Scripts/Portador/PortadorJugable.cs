@@ -33,8 +33,8 @@ public class PortadorJugable : Portador
     }
 
      private void añadirCamara(){
-        if(GetComponent<Camera>() == null){
-            gameObject.AddComponent<Camera>();
+        if(GetComponent<Camara>() == null){
+            gameObject.AddComponent<Camara>();
         }
     }
 
