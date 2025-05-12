@@ -10,12 +10,12 @@ public class Nigromante : PortadorJugable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        AñadirVidaUi(this.gameObject, sistemaVida.valorActual, sistemaVida.valorMax);
     }
 
     // Update is called once per frame
     void Update()
     {
-        sistemaDeVida.ActualizarVida(sistemaDeVida.ValorActual, sistemaDeVida.ValorMax);
+        sistemaVida.ActualizarVida(sistemaVida.valorActual, sistemaVida.valorMax);
     }
 }

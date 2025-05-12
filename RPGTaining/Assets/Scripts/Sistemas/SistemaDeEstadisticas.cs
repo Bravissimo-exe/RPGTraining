@@ -9,36 +9,22 @@ public class SistemaDeEstadisticas
 
     public SistemaDeEstadisticas(int valorMax)
     {
-        this.ValorMax = valorMax;
-        this.ValorMin = 0;
-        this.ValorActual = valorMax;
+        this.valorMax = valorMax;
+        this.valorMin = 0;
+        this.valorActual = valorMax;
     }
 
     public SistemaDeEstadisticas(int valorMax, int valorActual)
     {
-        this.ValorMax = valorMax;
-        this.ValorMin = 0;
-        this.ValorActual = valorActual;
+        this.valorMax = valorMax;
+        this.valorMin = 0;
+        this.valorActual = valorActual;
     }
 
     protected SistemaDeEstadisticas()
     {
-<<<<<<< Updated upstream
-        this.ValorMax = valorMax;
-        this.ValorMin = valorMin;
-        this.valorActual = valorMax;
-
-    }
-
-    public int ValorMax { get => valorMax; set => valorMax = value; }
-    public int ValorMin { get => valorMin; set => valorMin = value; }
-    public int ValorActual { get => valorActual; set => valorActual = value; }
-
-}
-=======
         this.valorMax = valorMax;
         this.valorMin = valorMin;
         this.valorActual = valorActual;
     }
 }
->>>>>>> Stashed changes

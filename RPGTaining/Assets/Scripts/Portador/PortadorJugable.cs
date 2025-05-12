@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class PortadorJugable : Portador
 {
-<<<<<<< Updated upstream
-
     protected string nombre;
     protected SistemaDeMana sistemaDeMana;
     protected SistemaDeHabilidades sistemaDeHabilidades;
@@ -22,21 +20,8 @@ public class PortadorJugable : Portador
 
     void Awake()
     {
-        inicializarVida(100);
+        InicializarVida(100);
         Debug.Log("sexo5");
-=======
-
-    protected PortadorJugable(): base(){
-        
-    }
-    
-
-    protected void Awake()
-    {
-        AñadirVidaUi(this.gameObject, sistemaDeVida.valorActual, sistemaDeVida.valorMax);
-        
-        
->>>>>>> Stashed changes
         añadirMovimiento();
         añadirCamara();
     }

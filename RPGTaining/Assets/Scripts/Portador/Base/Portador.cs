@@ -3,55 +3,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-public abstract class Portador : MonoBehaviour
-=======
-public abstract class Portador: MonoBehaviour
->>>>>>> Stashed changes
-=======
-public abstract class Portador : MonoBehaviour, IDañable
->>>>>>> parent of 8298043 (zonas de daño y curar melas)
-{
-
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-    protected Portador(SistemaDeVida sistemaVida)
-    {
-        this.sistemaDeVida = sistemaVida;
-    }
-
-    protected void inicializarVida(int vidaMax){
-        sistemaDeVida = new SistemaDeVida(vidaMax);
-        Debug.Log(sistemaDeVida.ValorActual);
-        sistemaDeVida.AñadirVidaUi(gameObject, sistemaDeVida.ValorMax);
-=======
-    protected Portador(SistemaDeVida sistemaDeVida)
-    {
-        this.sistemaDeVida = sistemaDeVida;
-=======
 public abstract class Portador : MonoBehaviour, IDañable
 {
-    protected SistemaDeVida sistemaDeVida;
-
-    protected Portador(SistemaDeVida sistemaDeVida)
-    {
-        this.sistemaDeVida = sistemaDeVida;
-    }
-
-    public void RecibirDaño(int daño)
-    {
-        sistemaDeVida.ValorActual -= daño;
->>>>>>> parent of 8298043 (zonas de daño y curar melas)
-    }
-
-    public void RecibirDaño(int daño)
-    {
-        sistemaDeVida.ValorActual -= daño;
->>>>>>> parent of 8298043 (zonas de daño y curar melas)
-    }
-=======
     protected Slider barraVida;
 
     protected GameObject vidaPrefab;
@@ -66,6 +19,10 @@ public abstract class Portador : MonoBehaviour, IDañable
     protected void Start()
     {
 
+    }
+
+    abstract void InicializarVida(int vidaMax){
+        sistemaVida = new SistemaDeVida(vidaMax);
     }
 
     protected void AñadirVidaUi(GameObject Padre, int vidaActual, int vidaMax){
@@ -85,7 +42,9 @@ public abstract class Portador : MonoBehaviour, IDañable
         barraVida.value = vidaActual;
     }
     
+    public void RecibirDaño(int daño){
+        sistemaVida.Daño(daño);
+    }
     
->>>>>>> Stashed changes
 }
 

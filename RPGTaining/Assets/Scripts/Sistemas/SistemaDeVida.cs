@@ -1,20 +1,11 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 using System;
 using UnityEditor;
-=======
->>>>>>> parent of 8298043 (zonas de daño y curar melas)
-=======
->>>>>>> parent of 8298043 (zonas de daño y curar melas)
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SistemaDeVida : SistemaDeEstadisticas 
 {
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-
-
     protected GameObject vidaPrefab;
     protected Slider barraVida;
 
@@ -23,36 +14,16 @@ public class SistemaDeVida : SistemaDeEstadisticas
     public SistemaDeVida() : base(100,100){
 
     }
-    public SistemaDeVida(int vidaMax) : base(vidaMax)
-=======
-    public SistemaDeVida(int valorMax, int valorMin, int valorActual) : base(valorMax, valorMin, valorActual)
-    {
-    }
+    public SistemaDeVida(int vidaMax) : base(vidaMax){}
 
-    public SistemaDeVida() : base ()
->>>>>>> parent of 8298043 (zonas de daño y curar melas)
-    {
-        
-=======
-    public SistemaDeVida() : base(100, 0, 100){
-
-    }
-
-    public SistemaDeVida(int vidaMax, int vidaActual) : base(vidaMax, 0, vidaActual){
     
->>>>>>> Stashed changes
+    public SistemaDeVida(int valorMax, int valorMin, int valorActual) : base(valorMax, valorActual)
+    {
     }
+
 
     public virtual void regenerarVida(int cantidad){
-<<<<<<< HEAD
          valorActual+= cantidad;
-    }
-
-
-<<<<<<< HEAD
-
-    private void añadirBarraDeVida(){
-
     }
 
     public void AñadirVidaUi(GameObject Padre, int vidaMax){
@@ -67,24 +38,20 @@ public class SistemaDeVida : SistemaDeEstadisticas
             barraVida.value = vidaMax;
     }
 
-    public void Daño(int vidaActual, int cantidad){
-        vidaActual -= cantidad;
+    public void Daño(int cantidad){
+        valorActual -= cantidad;
 
-        if(vidaActual <= 0){
+        if(valorActual <= 0){
             muerte?.Invoke();
         }
     }
 
     public void ActualizarVida(int vidaActual, int vidaMax){
-        
         barraVida.maxValue = vidaMax;
         barraVida.value = vidaActual;
-=======
-         ValorActual+= cantidad;
->>>>>>> parent of 8298043 (zonas de daño y curar melas)
-=======
-    public virtual void regenerarVida(int cantidad){
-         ValorActual+= cantidad;
->>>>>>> parent of 8298043 (zonas de daño y curar melas)
+    }
+
+    public void RegenerarVida(int cantidad){
+        valorActual+= cantidad;
     }
 }
