@@ -6,7 +6,7 @@ public class RayoCelestial : Habilidad
     {
     }
 
-    public RayoCelestial(string nombre, Sprite icono, string descripcion, float consumo, float coolDown) : base(nombre, icono, descripcion, consumo, coolDown)
+    public RayoCelestial(string nombre, Sprite icono, string descripcion, int consumo, float coolDown) : base(nombre, icono, descripcion, consumo, coolDown)
     {
     }
 
