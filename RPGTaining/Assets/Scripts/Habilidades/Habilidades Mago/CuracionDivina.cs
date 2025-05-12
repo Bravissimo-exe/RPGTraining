@@ -2,24 +2,22 @@ using UnityEngine;
 
 public class CuracionDivina : Habilidad
 {
+    private int cantidadCuracion;
+    private float ultimoCast;
+
     public CuracionDivina(string nombre) : base(nombre, null, "Descripción Curación", 30, 12)
     {
     }
-
-    public override void Lanzar()
-    {
-        throw new System.NotImplementedException();
+    public CuracionDivina() : base ("Curación Divina", null,"Descripción Curación", 30, 12){
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
+    public override void Lanzar(){
+        if(Time.time - ultimoCast < CoolDown)
+            return;
         
+        Debug.Log("Lancé curación");
+        //puedo hacer aparecer una luz encima, después miro
+        ultimoCast = Time.time;
     }
 }

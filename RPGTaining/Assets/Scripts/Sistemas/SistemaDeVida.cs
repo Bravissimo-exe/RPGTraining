@@ -10,8 +10,11 @@ public class SistemaDeVida : SistemaDeEstadisticas
     {
     }
 
-
     public virtual void regenerarVida(int cantidad){
-         ValorActual+= cantidad;
+        if(ValorActual + cantidad > valorMax){
+            ValorActual+= cantidad;
+        } else{
+            valorActual = valorMax;
+        }
     }
 }

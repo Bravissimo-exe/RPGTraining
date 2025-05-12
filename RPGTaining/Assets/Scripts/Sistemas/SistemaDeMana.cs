@@ -8,6 +8,10 @@ public class SistemaDeMana : SistemaDeEstadisticas
     public SistemaDeMana(){}
 
     public virtual void regenerarMana(int cantidad){
-         ValorActual+= cantidad;
+        if(ValorActual + cantidad > valorMax){
+            ValorActual+= cantidad;
+        } else{
+            valorActual = valorMax;
+        }
     }
 }
