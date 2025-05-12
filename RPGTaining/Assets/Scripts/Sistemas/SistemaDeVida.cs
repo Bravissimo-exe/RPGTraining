@@ -3,11 +3,19 @@ using System;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SistemaDeVida : SistemaDeEstadisticas
 {
+    private GameObject vidaPrefab;
+    private Slider barraVida;
+
+
     public SistemaDeVida(int valorMax, int valorMin, int valorActual) : base(valorMax, valorMin, valorActual)
     {
+    }
+    public SistemaDeVida () : base(100, 0, 100){
+
     }
     public void AñadirVidaUi(GameObject Padre, int vidaMax){
             Debug.Log("sexo1");
@@ -28,15 +36,14 @@ public class SistemaDeVida : SistemaDeEstadisticas
     }
 
     public void regenerarVida(int cantidad){
-        if(ValorActual <ValorMax)
-        {
-            ValorActual += cantidad;
+        valorActual += cantidad;
+        if(valorActual > valorMax){
+            valorActual = valorMax;
         }
         
     }
 
     public void ActualizarVida(int vidaActual){
         barraVida.value = vidaActual;
->>>>>>> Stashed changes
     }
 }
