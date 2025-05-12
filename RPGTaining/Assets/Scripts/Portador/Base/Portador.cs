@@ -16,7 +16,7 @@ public abstract class Portador : MonoBehaviour , IDañable, ICurable
     }
 
     public void Curar(int cantidad){
-        sistemaDeVida.regenerarVida(cantidad);
+        sistemaDeVida.Curar(cantidad);
     }
 
     protected void inicializarVida(){

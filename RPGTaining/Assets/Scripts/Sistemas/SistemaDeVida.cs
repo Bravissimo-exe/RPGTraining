@@ -37,11 +37,16 @@ public class SistemaDeVida : SistemaDeEstadisticas
     }
 
     public void regenerarVida(int cantidad){
+        if(valorActual < valorMax ){
+            valorActual += cantidad;
+        }
+    }
+
+    public void Curar(int cantidad){
         valorActual += cantidad;
         if(valorActual > valorMax){
             valorActual = valorMax;
         }
-        
     }
 
     public void ActualizarVida(int vidaActual){
