@@ -1,27 +1,62 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
-public abstract class Portador : MonoBehaviour , IDañable, ICurable
+public abstract class Portador : MonoBehaviour, IDañable, ICurable
 {
-    protected SistemaDeVida sistemaDeVida;
+    protected Slider barraVida;
 
-    protected Portador(SistemaDeVida sistemaDeVida)
+    protected GameObject vidaPrefab;
+
+    protected SistemaDeVida sistemaVida;
+
+    protected Portador(SistemaDeVida sistemaVida)
     {
-        this.sistemaDeVida = sistemaDeVida;
+        this.sistemaVida = sistemaVida;
     }
 
-    public void RecibirDaño(int daño)
 
-    {   
-        sistemaDeVida.Daño(daño);
+    protected void InicializarVida(int vidaMax){
+        sistemaVida = new SistemaDeVida(vidaMax);
     }
 
+    protected void AñadirVidaUiJugador(GameObject Padre, int vidaMax){
+
+        vidaPrefab = Resources.Load<GameObject>("UI/BarraDeVidaPlayer");
+        if(vidaPrefab == null) return;
+
+        GameObject UI = GameObject.Instantiate(vidaPrefab, Padre.transform);
+
+        barraVida = UI.GetComponentInChildren<Slider>();
+        barraVida.maxValue = vidaMax;
+        barraVida.value = vidaMax;
+    }
+
+    protected void AñadirVidaUi(GameObject Padre, int vidaMax){
+
+        vidaPrefab = Resources.Load<GameObject>("UI/BarraDeVida");
+        if(vidaPrefab == null) return;
+
+        GameObject UI = GameObject.Instantiate(vidaPrefab, Padre.transform);
+
+        barraVida = UI.GetComponentInChildren<Slider>();
+        barraVida.maxValue = vidaMax;
+        barraVida.value = vidaMax;
+    }
+
+    protected void ActualizarVida(int vidaActual){
+        barraVida.value = vidaActual;
+        Debug.Log("vida: " + vidaActual);
+    }
+    
     public void Curar(int cantidad){
-        sistemaDeVida.regenerarVida(cantidad);
+        sistemaVida.RegenerarVida(cantidad);
     }
 
-    protected void inicializarVida(){
-        sistemaDeVida = new SistemaDeVida();
-        Debug.Log(sistemaDeVida.ValorActual);
-        sistemaDeVida.AñadirVidaUi(gameObject, sistemaDeVida.ValorMax);
+    public void RecibirDaño(int daño){
+        sistemaVida.Daño(daño);
     }
+    
 }
+
