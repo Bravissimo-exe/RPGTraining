@@ -9,6 +9,7 @@ public class PortadorJugable : Portador
     public PortadorJugable(string nombre, SistemaDeVida sistemaDeVida, SistemaDeMana sistemaDeMana, SistemaDeHabilidades sistemaDeHabilidades) : base(sistemaDeVida)
     {
         this.nombre = nombre;
+        this.sistemaDeVida = sistemaDeVida;
         this.sistemaDeMana = sistemaDeMana;
         this.sistemaDeHabilidades = sistemaDeHabilidades;
     }
@@ -30,5 +31,4 @@ public class PortadorJugable : Portador
             gameObject.AddComponent<Camera>();
         }
     }
-
 }

@@ -28,4 +28,10 @@ public abstract class Portador : MonoBehaviour , IDañable, ICurable
         Debug.Log(sistemaDeVida.ValorActual);
         sistemaDeVida.AñadirVidaUi(gameObject, sistemaDeVida.ValorMax);
     }
+
+    public void Curar(int cantidad){
+        sistemaDeVida.ValorActual += cantidad;
+        if(sistemaDeVida.ValorActual > sistemaDeVida.ValorMax)
+            sistemaDeVida.ValorActual = sistemaDeVida.ValorMax;
+    }
 }
