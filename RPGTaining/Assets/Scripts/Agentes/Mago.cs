@@ -47,7 +47,6 @@ public class Mago : PortadorJugable
     }
 
     private void SetupSistemas(){
-        sistemaDeVida = new SistemaDeVida();
         sistemaDeMana = new SistemaDeMana();
         sistemaDeHabilidades = gameObject.AddComponent<SistemaDeHabilidades>();
 

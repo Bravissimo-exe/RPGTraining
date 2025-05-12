@@ -23,8 +23,8 @@ public class SistemaDeEstadisticas
 
     protected SistemaDeEstadisticas()
     {
-        this.valorMax = valorMax;
-        this.valorMin = valorMin;
-        this.valorActual = valorActual;
+        valorMax = valorMax;
+        valorMin = valorMin;
+        valorActual = valorActual;
     }
 }

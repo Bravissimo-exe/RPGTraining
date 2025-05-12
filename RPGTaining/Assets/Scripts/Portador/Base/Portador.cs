@@ -16,38 +16,31 @@ public abstract class Portador : MonoBehaviour, IDañable
         this.sistemaVida = sistemaVida;
     }
 
-<<<<<<< HEAD
-    protected void Start()
-    {
 
-    }
-
-    abstract void InicializarVida(int vidaMax){
+    protected void InicializarVida(int vidaMax){
         sistemaVida = new SistemaDeVida(vidaMax);
     }
 
-    protected void AñadirVidaUi(GameObject Padre, int vidaActual, int vidaMax){
+    protected void AñadirVidaUi(GameObject Padre, int vidaMax){
 
-            vidaPrefab = Resources.Load<GameObject>("UI/BarraDeVida");
-            if(vidaPrefab == null) return;
+        vidaPrefab = Resources.Load<GameObject>("UI/BarraDeVida");
+        if(vidaPrefab == null) return;
 
-            GameObject UI = GameObject.Instantiate(vidaPrefab, Padre.transform);
+        GameObject UI = GameObject.Instantiate(vidaPrefab, Padre.transform);
 
-            barraVida = UI.GetComponentInChildren<Slider>();
-            barraVida.maxValue = vidaMax;
-            barraVida.value = vidaActual;
-=======
-    public void RecibirDaño(int daño)
-    {
-        sistemaDeVida.ValorActual -= daño;
->>>>>>> parent of 8298043 (zonas de daño y curar melas)
+        barraVida = UI.GetComponentInChildren<Slider>();
+        barraVida.maxValue = vidaMax;
+        barraVida.value = vidaMax;
     }
 
-    protected void ActualizarVida(int vidaActual, int vidaMax){
-        barraVida.maxValue = vidaMax;
+    protected void ActualizarVida(int vidaActual){
         barraVida.value = vidaActual;
     }
     
+    public void Curar(int cantidad){
+        sistemaVida.RegenerarVida(cantidad);
+    }
+
     public void RecibirDaño(int daño){
         sistemaVida.Daño(daño);
     }
