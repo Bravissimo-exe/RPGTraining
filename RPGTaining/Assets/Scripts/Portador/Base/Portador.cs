@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class Portador : MonoBehaviour, IDañable
+public abstract class Portador : MonoBehaviour, IDañable, ICurable
 {
     protected Slider barraVida;
 
@@ -21,6 +21,18 @@ public abstract class Portador : MonoBehaviour, IDañable
         sistemaVida = new SistemaDeVida(vidaMax);
     }
 
+    protected void AñadirVidaUiJugador(GameObject Padre, int vidaMax){
+
+        vidaPrefab = Resources.Load<GameObject>("UI/BarraDeVidaPlayer");
+        if(vidaPrefab == null) return;
+
+        GameObject UI = GameObject.Instantiate(vidaPrefab, Padre.transform);
+
+        barraVida = UI.GetComponentInChildren<Slider>();
+        barraVida.maxValue = vidaMax;
+        barraVida.value = vidaMax;
+    }
+
     protected void AñadirVidaUi(GameObject Padre, int vidaMax){
 
         vidaPrefab = Resources.Load<GameObject>("UI/BarraDeVida");
@@ -35,6 +47,7 @@ public abstract class Portador : MonoBehaviour, IDañable
 
     protected void ActualizarVida(int vidaActual){
         barraVida.value = vidaActual;
+        Debug.Log("vida: " + vidaActual);
     }
     
     public void Curar(int cantidad){

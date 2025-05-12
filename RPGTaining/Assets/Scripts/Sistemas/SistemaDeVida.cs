@@ -17,6 +17,18 @@ public class SistemaDeVida : SistemaDeEstadisticas
 
     public SistemaDeVida(int valorMax, int valorMin, int valorActual) : base(valorMax, valorActual){}
 
+    public void AñadirVidaUiJugador(GameObject Padre, int vidaMax){
+            Debug.Log("sexo1");
+            vidaPrefab = Resources.Load<GameObject>("UI/BarraDeVidaPlayer");
+            if(vidaPrefab == null) return;
+
+            GameObject UI = GameObject.Instantiate(vidaPrefab, Padre.transform);
+            Debug.Log("sexo2");
+            barraVida = UI.GetComponentInChildren<Slider>();
+            barraVida.maxValue = vidaMax;
+            barraVida.value = vidaMax;
+    }
+
     public void AñadirVidaUi(GameObject Padre, int vidaMax){
             Debug.Log("sexo1");
             vidaPrefab = Resources.Load<GameObject>("UI/BarraDeVida");
@@ -30,8 +42,9 @@ public class SistemaDeVida : SistemaDeEstadisticas
     }
 
     public void Daño(int cantidad){
-        valorActual -= cantidad;
-
+        if(valorActual > valorMin){
+            valorActual -= cantidad;
+        }
         if(valorActual <= 0){
             muerte?.Invoke();
         }
@@ -40,6 +53,8 @@ public class SistemaDeVida : SistemaDeEstadisticas
    
 
     public void RegenerarVida(int cantidad){
-        valorActual+= cantidad;
+        if(valorActual < valorMax){
+            valorActual+= cantidad;
+        }
     }
 }
