@@ -31,9 +31,6 @@ public class Mago : PortadorJugable
 
     void Update(){
 
-        Debug.Log("Tiempo transcurrido: " + (Time.time - _ultimoCast1));
-        Debug.Log("holaaa: " + _ultimoCast1);
-
         //Habilidad 1
         if(Input.GetKeyDown(KeyCode.Alpha1) && Disponible1()){
             if(sistemaDeHabilidades.Habilidades[0] is BolaDeLuz habilidad1){
@@ -52,7 +49,7 @@ public class Mago : PortadorJugable
         //Habilidad 2
         else if(Input.GetKeyDown(KeyCode.Alpha2) && Disponible2()){
             if(sistemaDeHabilidades.Habilidades[1] is CuracionDivina habilidad2){
-                habilidad2.Lanzar();
+                habilidad2.Usar(this);
             }
         }
 
@@ -82,6 +79,11 @@ public class Mago : PortadorJugable
             }
         }
         return false;
+    }
+
+    [ContextMenu("Mostrar Vida")]
+    public void MostrarVida(){
+        Debug.Log("Vida Personaje: " + sistemaDeVida.ValorActual);
     }
     
 }
