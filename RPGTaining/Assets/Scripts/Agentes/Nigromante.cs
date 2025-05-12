@@ -2,7 +2,7 @@ using UnityEngine;
 public class Nigromante : PortadorJugable
 {
     public Collider colision;
-    public Nigromante(string nombre, SistemaDeVida sistemaDeVida, SistemaDeHabilidades sistemaDeHabilidades) : base(nombre, sistemaDeVida, sistemaDeHabilidades)
+    public Nigromante(string nombre, SistemaDeVida sistemaDeVida, SistemaDeHabilidades sistemaDeHabilidades) : base(nombre, sistemaDeVida, null, sistemaDeHabilidades)
     {
     }
 

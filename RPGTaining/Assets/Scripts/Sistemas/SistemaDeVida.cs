@@ -14,6 +14,7 @@ public class SistemaDeVida : SistemaDeEstadisticas
     public SistemaDeVida(int valorMax, int valorMin, int valorActual) : base(valorMax, valorMin, valorActual)
     {
     }
+    
     public SistemaDeVida () : base(100, 0, 100){
 
     }
