@@ -14,10 +14,7 @@ public abstract class Portador : MonoBehaviour , IDañable, ICurable
     }
 
     public void RecibirDaño(int daño)
-<<<<<<< Updated upstream
-    {
-        sistemaDeVida.ValorActual -= daño;
-=======
+
     {   
         sistemaDeVida.Daño(daño);
     }
@@ -30,6 +27,5 @@ public abstract class Portador : MonoBehaviour , IDañable, ICurable
         sistemaDeVida = new SistemaDeVida(vidaMax);
         Debug.Log(sistemaDeVida.ValorActual);
         sistemaDeVida.AñadirVidaUi(gameObject, sistemaDeVida.ValorMax);
->>>>>>> Stashed changes
     }
 }

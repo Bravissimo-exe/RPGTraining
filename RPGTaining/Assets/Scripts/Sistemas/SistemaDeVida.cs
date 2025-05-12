@@ -1,9 +1,7 @@
-<<<<<<< Updated upstream
-=======
+
 using System;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
->>>>>>> Stashed changes
 using UnityEngine;
 
 public class SistemaDeVida : SistemaDeEstadisticas
@@ -11,16 +9,6 @@ public class SistemaDeVida : SistemaDeEstadisticas
     public SistemaDeVida(int valorMax, int valorMin, int valorActual) : base(valorMax, valorMin, valorActual)
     {
     }
-
-<<<<<<< Updated upstream
-    public SistemaDeVida() : base ()
-    {
-    }
-
-
-    public virtual void regenerarVida(int cantidad){
-         ValorActual+= cantidad;
-=======
     public void AñadirVidaUi(GameObject Padre, int vidaMax){
             Debug.Log("sexo1");
             vidaPrefab = Resources.Load<GameObject>("UI/BarraDeVida");
