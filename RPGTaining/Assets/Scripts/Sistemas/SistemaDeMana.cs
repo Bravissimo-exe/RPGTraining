@@ -8,6 +8,8 @@ public class SistemaDeMana : SistemaDeEstadisticas
     public SistemaDeMana(){}
 
     public virtual void regenerarMana(int cantidad){
-         ValorActual+= cantidad;
+         
     }
+
+    
 }

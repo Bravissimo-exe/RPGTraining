@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public abstract class SistemaDeEstadisticas : MonoBehaviour
+// Clase pura C# (NO hereda de MonoBehaviour)
+public class SistemaDeEstadisticas
 {
-    [Header("Configuracion Base")]
-    [SerializeField] private int valorMax = 100;
-    [SerializeField] private int valorMin = 0;
-    [SerializeField] private int valorActual;
+   [SerializeField] public int valorMax;
+   [SerializeField] public int valorMin;
+   [SerializeField] public int valorActual;
 
     public SistemaDeEstadisticas(int valorMax)
     {
@@ -23,6 +23,7 @@ public abstract class SistemaDeEstadisticas : MonoBehaviour
 
     protected SistemaDeEstadisticas()
     {
+<<<<<<< Updated upstream
         this.ValorMax = valorMax;
         this.ValorMin = valorMin;
         this.valorActual = valorMax;
@@ -34,3 +35,10 @@ public abstract class SistemaDeEstadisticas : MonoBehaviour
     public int ValorActual { get => valorActual; set => valorActual = value; }
 
 }
+=======
+        this.valorMax = valorMax;
+        this.valorMin = valorMin;
+        this.valorActual = valorActual;
+    }
+}
+>>>>>>> Stashed changes
