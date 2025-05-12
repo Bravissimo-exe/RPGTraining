@@ -50,6 +50,7 @@ public class Mago : PortadorJugable
         else if(Input.GetKeyDown(KeyCode.Alpha2) && Disponible2()){
             if(sistemaDeHabilidades.Habilidades[1] is CuracionDivina habilidad2){
                 habilidad2.Usar(this);
+                sistemaDeMana.ValorActual -= habilidad2.Consumo;
             }
         }
 
