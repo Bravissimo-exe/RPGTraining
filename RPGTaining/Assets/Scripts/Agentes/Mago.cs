@@ -43,6 +43,7 @@ public class Mago : PortadorJugable
                 habilidad1.SoltarCarga(prefabsBolas, shootPoint, rotacionCamara);
                 _pasoPorCarga = false;
                 _ultimoCast1 = Time.time;
+                sistemaDeMana.ValorActual -= habilidad1.Consumo;
             }
         }
 
