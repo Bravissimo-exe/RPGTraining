@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 
 using System;
 using UnityEditor;
+=======
+>>>>>>> parent of 8298043 (zonas de daño y curar melas)
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +12,7 @@ public class SistemaDeVida : SistemaDeEstadisticas
     protected GameObject vidaPrefab;
     protected Slider barraVida;
 
+<<<<<<< HEAD
     public event Action muerte;
 
     public SistemaDeVida() : base(100,100){
@@ -18,11 +22,15 @@ public class SistemaDeVida : SistemaDeEstadisticas
 
     
     public SistemaDeVida(int valorMax, int valorMin, int valorActual) : base(valorMax, valorActual)
+=======
+    public SistemaDeVida() : base ()
+>>>>>>> parent of 8298043 (zonas de daño y curar melas)
     {
     }
 
 
     public virtual void regenerarVida(int cantidad){
+<<<<<<< HEAD
          valorActual+= cantidad;
     }
 
@@ -53,5 +61,8 @@ public class SistemaDeVida : SistemaDeEstadisticas
 
     public void RegenerarVida(int cantidad){
         valorActual+= cantidad;
+=======
+         ValorActual+= cantidad;
+>>>>>>> parent of 8298043 (zonas de daño y curar melas)
     }
 }

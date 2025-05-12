@@ -16,6 +16,7 @@ public abstract class Portador : MonoBehaviour, IDañable
         this.sistemaVida = sistemaVida;
     }
 
+<<<<<<< HEAD
     protected void Start()
     {
 
@@ -35,6 +36,11 @@ public abstract class Portador : MonoBehaviour, IDañable
             barraVida = UI.GetComponentInChildren<Slider>();
             barraVida.maxValue = vidaMax;
             barraVida.value = vidaActual;
+=======
+    public void RecibirDaño(int daño)
+    {
+        sistemaDeVida.ValorActual -= daño;
+>>>>>>> parent of 8298043 (zonas de daño y curar melas)
     }
 
     protected void ActualizarVida(int vidaActual, int vidaMax){
