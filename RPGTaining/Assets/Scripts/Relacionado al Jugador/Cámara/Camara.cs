@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Security;
 using UnityEngine;
 
+[RequireComponent(typeof(Camera))]
 public class Camara : MonoBehaviour
 {
 
