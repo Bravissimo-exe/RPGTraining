@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 public abstract class Portador : MonoBehaviour
 =======
@@ -29,6 +30,20 @@ public abstract class Portador : MonoBehaviour, IDañable
     protected Portador(SistemaDeVida sistemaDeVida)
     {
         this.sistemaDeVida = sistemaDeVida;
+=======
+public abstract class Portador : MonoBehaviour, IDañable
+{
+    protected SistemaDeVida sistemaDeVida;
+
+    protected Portador(SistemaDeVida sistemaDeVida)
+    {
+        this.sistemaDeVida = sistemaDeVida;
+    }
+
+    public void RecibirDaño(int daño)
+    {
+        sistemaDeVida.ValorActual -= daño;
+>>>>>>> parent of 8298043 (zonas de daño y curar melas)
     }
 
     public void RecibirDaño(int daño)

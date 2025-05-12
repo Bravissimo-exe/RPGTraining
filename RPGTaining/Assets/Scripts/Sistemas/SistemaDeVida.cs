@@ -1,6 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 using System;
 using UnityEditor;
+=======
+>>>>>>> parent of 8298043 (zonas de daño y curar melas)
 =======
 >>>>>>> parent of 8298043 (zonas de daño y curar melas)
 using UnityEngine;
@@ -46,6 +49,7 @@ public class SistemaDeVida : SistemaDeEstadisticas
     }
 
 
+<<<<<<< HEAD
 
     private void añadirBarraDeVida(){
 
@@ -76,6 +80,10 @@ public class SistemaDeVida : SistemaDeEstadisticas
         barraVida.maxValue = vidaMax;
         barraVida.value = vidaActual;
 =======
+         ValorActual+= cantidad;
+>>>>>>> parent of 8298043 (zonas de daño y curar melas)
+=======
+    public virtual void regenerarVida(int cantidad){
          ValorActual+= cantidad;
 >>>>>>> parent of 8298043 (zonas de daño y curar melas)
     }
