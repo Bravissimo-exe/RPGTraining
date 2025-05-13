@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PortadorNoJugable : Portador, IDañable
+public class PortadorNoJugable : Portador
 {
     public PortadorNoJugable(SistemaDeVida sistemaVida) : base(sistemaVida)
     {

@@ -34,7 +34,7 @@ public abstract class Portador : MonoBehaviour, IDañable, ICurable
     }
 
     protected void AñadirVidaUi(GameObject Padre, int vidaMax){
-
+        Debug.Log("hola");
         vidaPrefab = Resources.Load<GameObject>("UI/BarraDeVida");
         if(vidaPrefab == null) return;
 
@@ -47,7 +47,7 @@ public abstract class Portador : MonoBehaviour, IDañable, ICurable
 
     protected void ActualizarVida(int vidaActual){
         barraVida.value = vidaActual;
-        Debug.Log("vida: " + vidaActual);
+        Debug.Log("ssz");
     }
     
     public void Curar(int cantidad){
