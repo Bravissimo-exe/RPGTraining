@@ -47,7 +47,7 @@ public abstract class Portador : MonoBehaviour, IDañable, ICurable
 
     protected void ActualizarVida(int vidaActual){
         barraVida.value = vidaActual;
-        Debug.Log("ssz");
+        
     }
     
     public void Curar(int cantidad){
@@ -55,6 +55,7 @@ public abstract class Portador : MonoBehaviour, IDañable, ICurable
     }
 
     public void RecibirDaño(int daño){
+        Debug.Log("ssz");
         sistemaVida.Daño(daño);
     }
     

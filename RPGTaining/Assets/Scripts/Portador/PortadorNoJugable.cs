@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PortadorNoJugable : Portador
 {
@@ -12,13 +11,15 @@ public class PortadorNoJugable : Portador
         InicializarVida(100);
     }
 
-    void Start()
+     void Start()
     {
         AñadirVidaUi(this.gameObject, sistemaVida.valorMax);
     }
-    
+
+    // Update is called once per frame
     void Update()
     {
+        Debug.Log("vida: "+sistemaVida.valorActual);
         ActualizarVida(sistemaVida.valorActual);
     }
 }

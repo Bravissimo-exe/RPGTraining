@@ -13,7 +13,7 @@ public class BolaDeSangre : Habilidad
     private MonoBehaviour controladorMono;
 
     //Referencias para Instanciar las habilidades
-    private List<GameObject> prefabsBolas;
+    private GameObject prefabsBolas;
     private Transform prefabPosicion;
     private Transform prefabRotacion;
 
@@ -35,6 +35,7 @@ public class BolaDeSangre : Habilidad
             yield return new WaitForSeconds(tiempoPorCarga);
             nivelCarga++;
             Debug.Log("Carga Actual: " + nivelCarga);//Reemplazar por verlo en UI
+            
         }
     }
 
@@ -43,8 +44,8 @@ public class BolaDeSangre : Habilidad
         rutinaCarga = mono.StartCoroutine(Cargar());
     }
 
-    public void SoltarCarga(List<GameObject> prefabs, Transform posicion, Transform rotacion){
-        prefabsBolas = prefabs;
+    public void SoltarCarga(GameObject bolaSangre, Transform posicion, Transform rotacion){
+        prefabsBolas = bolaSangre;
         prefabPosicion = posicion;
         prefabRotacion = rotacion;
 
@@ -67,17 +68,17 @@ public class BolaDeSangre : Habilidad
             case 1:
                 //Instanciar Carga 1
                 Debug.Log("Lancé una bola de luz de 1 carga");
-                instanciaBola = Object.Instantiate(prefabsBolas[0], prefabPosicion.position, prefabRotacion.rotation);
+                instanciaBola = Object.Instantiate(prefabsBolas, prefabPosicion.position, prefabRotacion.rotation);
                 break;
             case 2:
                 //Instanciar Carga 2
                 Debug.Log("Lancé una bola de luz de 2 cargas");
-                instanciaBola = Object.Instantiate(prefabsBolas[1], prefabPosicion.position, prefabRotacion.rotation);
+                instanciaBola = Object.Instantiate(prefabsBolas, prefabPosicion.position, prefabRotacion.rotation);
                 break;
             case 3:
                 //Instanciar Carga 3
                 Debug.Log("Lancé una bola de luz de 3 cargas");
-                instanciaBola = Object.Instantiate(prefabsBolas[2], prefabPosicion.position, prefabRotacion.rotation);
+                instanciaBola = Object.Instantiate(prefabsBolas, prefabPosicion.position, prefabRotacion.rotation);
                 break;
             default:
                 instanciaBola = null;

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Mago : PortadorJugable
 {
@@ -20,19 +19,19 @@ public class Mago : PortadorJugable
     //Unity obviamente no usa el constructor cuando se instancia un MonoBehaviour
     //Por lo que las cosas las debemos inicializar en el Awake
 
-    void Awake(){
+    void Start(){
+        AñadirVidaUiJugador(this.gameObject, sistemaVida.valorMax);
         SetupSistemas();
         sistemaDeHabilidades.AñadirHabilidad(new BolaDeLuz("Bola de Luz"));
         sistemaDeHabilidades.AñadirHabilidad(new CuracionDivina());
     }
 
-    void Start(){
-    }
-
     void Update(){
+        ActualizarVida(sistemaVida.valorActual);
+        Debug.Log("vida: " + sistemaVida.valorActual);
 
-        Debug.Log("Tiempo transcurrido: " + (Time.time - _ultimoCast1));
-        Debug.Log("holaaa: " + _ultimoCast1);
+        // Debug.Log("Tiempo transcurrido: " + (Time.time - _ultimoCast1));
+        // Debug.Log("holaaa: " + _ultimoCast1);
 
         //Habilidad 1
         if(Input.GetKeyDown(KeyCode.Alpha1) && Disponible1()){
