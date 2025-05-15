@@ -28,7 +28,6 @@ public class Mago : PortadorJugable
 
     void Update(){
         ActualizarVida(sistemaVida.valorActual);
-        Debug.Log("vida: " + sistemaVida.valorActual);
 
         // Debug.Log("Tiempo transcurrido: " + (Time.time - _ultimoCast1));
         // Debug.Log("holaaa: " + _ultimoCast1);

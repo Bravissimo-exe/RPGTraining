@@ -23,7 +23,7 @@ public class PortadorJugable : Portador
         InicializarVida(100);
         Debug.Log("sexo5");
         añadirMovimiento();
-        añadirCamara();
+        // añadirCamara();
     }
 
     private void añadirMovimiento(){
@@ -32,10 +32,10 @@ public class PortadorJugable : Portador
         }
     }
 
-     private void añadirCamara(){
-        if(GetComponent<Camara>() == null){
-            gameObject.AddComponent<Camara>();
-        }
-    }
+    // private void añadirCamara(){
+    //     if(GetComponent<Camara>() == null){
+    //         gameObject.AddComponent<Camara>();
+    //     }
+    // }
 
 }
