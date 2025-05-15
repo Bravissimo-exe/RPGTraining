@@ -23,8 +23,8 @@ public class SistemaDeEstadisticas
 
     protected SistemaDeEstadisticas()
     {
-        valorMax = valorMax;
-        valorMin = valorMin;
-        valorActual = valorActual;
+        valorMax = 100;
+        valorMin = 0;
+        valorActual = valorMax;
     }
 }
