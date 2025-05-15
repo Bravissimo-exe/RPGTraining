@@ -19,14 +19,14 @@ public class BolaDeSangre : Habilidad
 
 
 
-    public BolaDeSangre(string nombre, Sprite icono, string descripcion, float consumo, float coolDown) : base(nombre, icono, descripcion, consumo, coolDown)
+    public BolaDeSangre(string nombre, Sprite icono, string descripcion, int consumo, float coolDown) : base(nombre, icono, descripcion, consumo, coolDown)
     {
     }
 
-    public BolaDeSangre(string nombre) : base(nombre, null, "Descripcion de habilidad genérica", 10f, 5f)
+    public BolaDeSangre(string nombre) : base(nombre, null, "Descripcion de habilidad genérica", 10, 5f)
     {
     }
-    public BolaDeSangre() : base("Bola de Luz", null, "Descripción Bola de Sangre", 10f, 3f){
+    public BolaDeSangre() : base("Bola de Luz", null, "Descripción Bola de Sangre", 10, 3f){
     }
 
     private IEnumerator Cargar(){
