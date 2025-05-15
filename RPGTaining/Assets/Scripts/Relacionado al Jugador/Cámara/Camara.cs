@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Security;
 using UnityEngine;
 
@@ -16,7 +14,7 @@ public class Camara : MonoBehaviour
     void Start()
     {
         camera = transform.Find("Camara");
-        Cursor.lockState = CursorLockMode.Locked;   
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
@@ -27,7 +25,7 @@ public class Camara : MonoBehaviour
         if(horizontalAxis != 0){
             transform.Rotate(Vector3.up * horizontalAxis * sens.x);
         }
-        
+
         if(verticalAxis != 0){
             //camera.Rotate(Vector3.left * verticalAxis * sens.y);
             float angle = (camera.localEulerAngles.x - verticalAxis * sens.y + 360) % 360;

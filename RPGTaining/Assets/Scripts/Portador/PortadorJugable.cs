@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PortadorJugable : Portador
@@ -6,15 +7,21 @@ public class PortadorJugable : Portador
     protected SistemaDeMana sistemaDeMana;
     protected SistemaDeHabilidades sistemaDeHabilidades;
 
-    public PortadorJugable(string nombre, SistemaDeVida sistemaDeVida, SistemaDeMana sistemaDeMana, SistemaDeHabilidades sistemaDeHabilidades) : base(sistemaDeVida)
+    public PortadorJugable(string nombre, SistemaDeVida sistemaDeVida, SistemaDeMana sistemaDeMana, SistemaDeHabilidades sistemaDeHabilidades) : base(null)
+    {
+    }
+
+
+    public PortadorJugable(string nombre, SistemaDeVida sistemaDeVida, SistemaDeHabilidades sistemaDeHabilidades) : base(sistemaDeVida)
     {
         this.nombre = nombre;
-        this.sistemaDeVida = sistemaDeVida;
-        this.sistemaDeMana = sistemaDeMana;
         this.sistemaDeHabilidades = sistemaDeHabilidades;
     }
 
     void Awake()
     {
+        InicializarVida(100);
     }
+
+
 }

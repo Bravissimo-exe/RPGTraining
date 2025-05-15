@@ -1,38 +1,24 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PortadorNoJugable : Portador
 {
-
-    // [SerializeField] private Slider barraVida;
-
-    public PortadorNoJugable(SistemaDeVida sistemaDeVida) : base(sistemaDeVida){
+    public PortadorNoJugable(SistemaDeVida sistemaVida) : base(sistemaVida)
+    {
     }
 
-    void Start()
+    void Awake()
     {
-        sistemaDeVida = new SistemaDeVida();
-        sistemaDeVida.ValorActual = sistemaDeVida.ValorMax;
-        // barraVida.value = sistemaDeVida.ValorActual;
+        InicializarVida(100);
+    }
+
+     void Start()
+    {
+        AñadirVidaUi(this.gameObject, sistemaVida.valorMax);
     }
 
     // Update is called once per frame
     void Update()
     {
-        // barraVida.value = sistemaDeVida.ValorActual;
-
-        // if(barraVida.value == sistemaDeVida.ValorMin){
-        //     muelto();
-        // }
+        ActualizarVida(sistemaVida.valorActual);
     }
-
-    private void muelto(){
-        Destroy(gameObject);
-    }
-
-    [ContextMenu("Mostrar vida")]
-    public void MostrarVida(){
-        Debug.Log("Mi vida es: " + sistemaDeVida.ValorActual );
-    }
-    
 }
