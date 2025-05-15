@@ -12,15 +12,18 @@ public class Mago : PortadorJugable
     
     private float _ultimoCast1;
     private bool _pasoPorCarga = false;
+    private GameObject camara;
 
-    public Mago(string nombre, SistemaDeVida sistemaDeVida, SistemaDeMana sistemaDeMana, SistemaDeHabilidades sistemaDeHabilidades) : base(nombre, sistemaDeVida, sistemaDeMana, sistemaDeHabilidades){
+    public Mago(string nombre, SistemaDeVida sistemaDeVida, SistemaDeMana sistemaDeMana, SistemaDeHabilidades sistemaDeHabilidades) : base(nombre, sistemaDeVida, sistemaDeMana, sistemaDeHabilidades)
+    {
     }
     
     //Unity obviamente no usa el constructor cuando se instancia un MonoBehaviour
     //Por lo que las cosas las debemos inicializar en el Awake
 
     void Start(){
-        AñadirVidaUiJugador(this.gameObject, sistemaVida.valorMax);
+        camara = GameObject.Find("Camara");
+        AñadirVidaUiJugador(camara, sistemaVida.valorMax);
         SetupSistemas();
         sistemaDeHabilidades.AñadirHabilidad(new BolaDeLuz("Bola de Luz"));
         sistemaDeHabilidades.AñadirHabilidad(new CuracionDivina());

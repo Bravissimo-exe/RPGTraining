@@ -10,6 +10,8 @@ public class Nigromante : PortadorJugable
     private float _ultimoCast1;
     private bool _pasoPorCarga;
 
+    private GameObject camara;
+
     public Nigromante(string nombre, SistemaDeVida sistemaDeVida, SistemaDeHabilidades sistemaDeHabilidades) : base(nombre, sistemaDeVida, sistemaDeHabilidades)
     {
     }
@@ -17,8 +19,9 @@ public class Nigromante : PortadorJugable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        camara = GameObject.Find("Camara");
         sistemaDeHabilidades = gameObject.AddComponent<SistemaDeHabilidades>();
-        AñadirVidaUiJugador(this.gameObject, sistemaVida.valorMax);
+        AñadirVidaUiJugador(camara, sistemaVida.valorMax);
     }
 
     // Update is called once per frame
