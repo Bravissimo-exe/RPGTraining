@@ -21,21 +21,7 @@ public class PortadorJugable : Portador
     void Awake()
     {
         InicializarVida(100);
-        Debug.Log("sexo5");
-        añadirMovimiento();
-        // añadirCamara();
     }
 
-    private void añadirMovimiento(){
-        if(GetComponent<Movement>() == null){
-            gameObject.AddComponent<Movement>();
-        }
-    }
-
-    // private void añadirCamara(){
-    //     if(GetComponent<Camara>() == null){
-    //         gameObject.AddComponent<Camara>();
-    //     }
-    // }
 
 }
