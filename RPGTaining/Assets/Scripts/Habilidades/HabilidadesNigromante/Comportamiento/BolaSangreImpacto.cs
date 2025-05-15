@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class BolaSangreImpacto : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private Vector3 scaleChange;
     void Start()
     {
-        
+        scaleChange = new Vector3(0.001f, 0.001f, 0.001f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        scaleChange = new Vector3(0.001f, 0.001f, 0.001f);
     }
 }

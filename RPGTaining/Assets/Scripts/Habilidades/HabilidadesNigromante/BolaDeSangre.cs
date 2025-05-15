@@ -17,7 +17,7 @@ public class BolaDeSangre : Habilidad
     private Transform prefabPosicion;
     private Transform prefabRotacion;
 
-
+    GameObject instanciaBola;
 
     public BolaDeSangre(string nombre, Sprite icono, string descripcion, float consumo, float coolDown) : base(nombre, icono, descripcion, consumo, coolDown)
     {
@@ -42,6 +42,7 @@ public class BolaDeSangre : Habilidad
     public void EmpezarCarga(MonoBehaviour mono){
         controladorMono = mono;
         rutinaCarga = mono.StartCoroutine(Cargar());
+        instanciaBola = Object.Instantiate(prefabsBolas, prefabPosicion.position, prefabRotacion.rotation);
     }
 
     public void SoltarCarga(GameObject bolaSangre, Transform posicion, Transform rotacion){
@@ -61,29 +62,10 @@ public class BolaDeSangre : Habilidad
 
     public override void Lanzar()
     {
-        GameObject instanciaBola;
+        
         Rigidbody rb;
-        switch (nivelCarga)
-        {
-            case 1:
-                //Instanciar Carga 1
-                Debug.Log("Lancé una bola de luz de 1 carga");
-                instanciaBola = Object.Instantiate(prefabsBolas, prefabPosicion.position, prefabRotacion.rotation);
-                break;
-            case 2:
-                //Instanciar Carga 2
-                Debug.Log("Lancé una bola de luz de 2 cargas");
-                instanciaBola = Object.Instantiate(prefabsBolas, prefabPosicion.position, prefabRotacion.rotation);
-                break;
-            case 3:
-                //Instanciar Carga 3
-                Debug.Log("Lancé una bola de luz de 3 cargas");
-                instanciaBola = Object.Instantiate(prefabsBolas, prefabPosicion.position, prefabRotacion.rotation);
-                break;
-            default:
-                instanciaBola = null;
-                break;
-        }
+        
+        instanciaBola = Object.Instantiate(prefabsBolas, prefabPosicion.position, prefabRotacion.rotation);
 
         if(instanciaBola != null){
             instanciaBola.GetComponent<BolaLuzImpacto>().Daño = dañoBase * nivelCarga;
