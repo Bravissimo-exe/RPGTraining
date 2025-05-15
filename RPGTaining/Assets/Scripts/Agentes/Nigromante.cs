@@ -26,13 +26,13 @@ public class Nigromante : PortadorJugable
     {
         ActualizarVida(sistemaVida.valorActual);
 
-        if(Input.GetKeyDown(KeyCode.Alpha1) && Disponible1()){
+        if(Input.GetKeyDown(KeyCode.Alpha1) ){
             if(sistemaDeHabilidades.Habilidades[0] is BolaDeSangre habilidad1){
                 _pasoPorCarga = true;
                 habilidad1.EmpezarCarga(this);
             }
         }
-        else if(Input.GetKeyUp(KeyCode.Alpha1) && Disponible1() && _pasoPorCarga){
+        else if(Input.GetKeyUp(KeyCode.Alpha1)  && _pasoPorCarga){
             if(sistemaDeHabilidades.Habilidades[0] is BolaDeSangre habilidad1){
                 habilidad1.SoltarCarga(prefabBola, shootPoint, rotacionCamara);
                 _pasoPorCarga = false;
@@ -41,12 +41,12 @@ public class Nigromante : PortadorJugable
         }
     }
 
-    private bool Disponible1(){
-        if(sistemaDeMana.valorActual >= sistemaDeHabilidades.Habilidades[0].Consumo){
-            if(Time.time - _ultimoCast1 >= sistemaDeHabilidades.Habilidades[0].CoolDown){
-                return true;
-            }
-        }
-        return false;
-    }
+    // private bool Disponible1(){
+    //     if(sistemaVida.valorActual >= sistemaDeHabilidades.Habilidades[0].Consumo){
+    //         if(Time.time - _ultimoCast1 >= sistemaDeHabilidades.Habilidades[0].CoolDown){
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // }
 }
