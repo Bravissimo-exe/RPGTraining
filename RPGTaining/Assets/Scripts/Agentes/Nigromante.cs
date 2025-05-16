@@ -21,7 +21,6 @@ public class Nigromante : PortadorJugable
     void Start()
     {
         InicializarVida(100);
-        camara = GameObject.Find("Camara");
         sistemaDeHabilidades = gameObject.AddComponent<SistemaDeHabilidades>();
         sistemaDeHabilidades.AñadirHabilidad(new BolaDeSangre("Bola De Sangre"));
     }

@@ -23,7 +23,6 @@ public class Mago : PortadorJugable
 
     void Start(){
         InicializarVida(100);
-        camara = GameObject.Find("Camara");
         SetupSistemas();
         sistemaDeHabilidades.AñadirHabilidad(new BolaDeLuz("Bola de Luz"));
         sistemaDeHabilidades.AñadirHabilidad(new CuracionDivina());
