@@ -20,7 +20,6 @@ public class RayoCelestialComportamiento : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("Estoy en el triggeeeer");
         IDañable dañable = other.GetComponent<IDañable>();
         if (dañable != null)
         {
