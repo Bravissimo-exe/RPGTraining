@@ -42,7 +42,8 @@ public class BolaDeSangre : Habilidad
     public void EmpezarCarga(MonoBehaviour mono){
         controladorMono = mono;
         rutinaCarga = mono.StartCoroutine(Cargar());
-        instanciaBola = Object.Instantiate(prefabsBolas, prefabPosicion.position, prefabRotacion.rotation);
+        
+        
     }
 
     public void SoltarCarga(GameObject bolaSangre, Transform posicion, Transform rotacion){
@@ -65,7 +66,7 @@ public class BolaDeSangre : Habilidad
         
         Rigidbody rb;
         
-        instanciaBola = Object.Instantiate(prefabsBolas, prefabPosicion.position, prefabRotacion.rotation);
+        
 
         if(instanciaBola != null){
             instanciaBola.GetComponent<BolaLuzImpacto>().Daño = dañoBase * nivelCarga;

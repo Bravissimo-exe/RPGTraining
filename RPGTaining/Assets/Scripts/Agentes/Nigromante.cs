@@ -21,6 +21,7 @@ public class Nigromante : PortadorJugable
     {
         camara = GameObject.Find("Camara");
         sistemaDeHabilidades = gameObject.AddComponent<SistemaDeHabilidades>();
+        sistemaDeHabilidades.AñadirHabilidad(new BolaDeSangre("Bola De Sangre"));
         AñadirVidaUiJugador(camara, sistemaVida.valorMax);
     }
 
@@ -30,9 +31,11 @@ public class Nigromante : PortadorJugable
         ActualizarVida(sistemaVida.valorActual);
 
         if(Input.GetKeyDown(KeyCode.Alpha1) ){
-            if(sistemaDeHabilidades.Habilidades[0] is BolaDeSangre habilidad1){
+            if (sistemaDeHabilidades.Habilidades[0] is BolaDeSangre habilidad1)
+            {
                 _pasoPorCarga = true;
                 habilidad1.EmpezarCarga(this);
+                Debug.Log("sexoooooo");
             }
         }
         else if(Input.GetKeyUp(KeyCode.Alpha1)  && _pasoPorCarga){
