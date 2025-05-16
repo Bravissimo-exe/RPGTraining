@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,14 +20,11 @@ public class BolaDeSangre : Habilidad
 
     GameObject instanciaBola;
 
-    public BolaDeSangre(string nombre, Sprite icono, string descripcion, float consumo, float coolDown) : base(nombre, icono, descripcion, consumo, coolDown)
+    public BolaDeSangre(string nombre, Sprite icono, string descripcion, int consumo, float coolDown) : base(nombre, icono, descripcion, consumo, coolDown)
     {
     }
 
-    public BolaDeSangre(string nombre) : base(nombre, null, "Descripcion de habilidad genérica", 10f, 5f)
-    {
-    }
-    public BolaDeSangre() : base("Bola de Luz", null, "Descripción Bola de Sangre", 10f, 3f)
+    public BolaDeSangre(String nombre) : base(nombre)
     {
     }
 
@@ -76,7 +74,7 @@ public class BolaDeSangre : Habilidad
         if (instanciaBola != null)
         {
             instanciaBola.GetComponent<BolaLuzImpacto>().Daño = dañoBase * nivelCarga;
-            Object.Destroy(instanciaBola, 5f);
+            UnityEngine.Object.Destroy(instanciaBola, 5f);
             rb = instanciaBola.GetComponent<Rigidbody>();
             rb.linearVelocity = prefabRotacion.forward * 10f;
         }
