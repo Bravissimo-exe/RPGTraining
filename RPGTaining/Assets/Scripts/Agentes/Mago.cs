@@ -36,6 +36,7 @@ public class Mago : PortadorJugable
         SetupSistemas();
         sistemaDeHabilidades.AñadirHabilidad(new BolaDeLuz("Bola de Luz"));
         sistemaDeHabilidades.AñadirHabilidad(new CuracionDivina());
+        sistemaDeHabilidades.AñadirHabilidad(new RayoCelestial());
     }
 
     void Update()
@@ -70,15 +71,17 @@ public class Mago : PortadorJugable
             if (sistemaDeHabilidades.Habilidades[1] is CuracionDivina habilidad2)
             {
                 habilidad2.Lanzar();
+                _ultimoCast2 = Time.time;
             }
         }
 
         //Habilidad 3
-        else if (Input.GetKeyDown(KeyCode.Alpha2) && Disponible3())
+        else if (Input.GetKeyDown(KeyCode.Alpha3) && Disponible3())
         {
-            if (sistemaDeHabilidades.Habilidades[3] is RayoCelestial habilidad3)
+            if (sistemaDeHabilidades.Habilidades[2] is RayoCelestial habilidad3)
             {
                 habilidad3.Usar(prefabZona, shootPointZona);
+                _ultimoCast3 = Time.time;
             }
         }
     }

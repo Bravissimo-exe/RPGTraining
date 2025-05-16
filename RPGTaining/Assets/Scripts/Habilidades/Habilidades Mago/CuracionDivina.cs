@@ -3,7 +3,6 @@
     public class CuracionDivina : Habilidad
     {
         private int cantidadCuracion = 30;
-        private float ultimoCast;
 
         private Portador portador;
 

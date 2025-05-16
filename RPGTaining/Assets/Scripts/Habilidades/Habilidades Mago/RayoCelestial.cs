@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class RayoCelestial : Habilidad
 {
+    private int dañoPorTic = 1;
+    private float duracion = 5f;
+
     private GameObject zonaPrefab;
     private Transform zonaPosicion;
     
@@ -19,7 +22,9 @@ public class RayoCelestial : Habilidad
 
     public override void Lanzar()
     {
-        Object.Instantiate(zonaPrefab, zonaPosicion);
+        GameObject instancia = Object.Instantiate(zonaPrefab, zonaPosicion.position, Quaternion.identity);
+        instancia.GetComponent<RayoCelestialComportamiento>().DañoPorSegundo = dañoPorTic;
+        Object.Destroy(instancia, duracion);
     }
 
 }
