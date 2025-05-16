@@ -17,7 +17,7 @@ public class Mago : PortadorJugable
     [SerializeField] private Transform shootPointZona;
 
     //variables para la habilidad 1
-    private float _ultimoCast1;
+    private float _ultimoCast1 = 5f;
     private bool _pasoPorCarga = false;
 
 
@@ -36,17 +36,17 @@ public class Mago : PortadorJugable
         camara = GameObject.Find("Camara");
         AñadirVidaUiJugador(camara, sistemaVida.valorMax);
         SetupSistemas();
+
         sistemaDeHabilidades.AñadirHabilidad(new BolaDeLuz("Bola de Luz"));
         sistemaDeHabilidades.AñadirHabilidad(new CuracionDivina());
         sistemaDeHabilidades.AñadirHabilidad(new RayoCelestial());
+        SetupCooldown();
     }
 
     void Update()
     {
         ActualizarVida(sistemaVida.valorActual);
 
-        // Debug.Log("Tiempo transcurrido: " + (Time.time - _ultimoCast1));
-        // Debug.Log("holaaa: " + _ultimoCast1);
 
         //Habilidad 1
         if (Input.GetKeyDown(KeyCode.Alpha1) && Disponible1())
@@ -72,7 +72,7 @@ public class Mago : PortadorJugable
         {
             if (sistemaDeHabilidades.Habilidades[1] is CuracionDivina habilidad2)
             {
-                habilidad2.Lanzar();
+                habilidad2.Usar(this);
                 _ultimoCast2 = Time.time;
             }
         }
@@ -108,8 +108,10 @@ public class Mago : PortadorJugable
 
     private bool Disponible2()
     {
-        if (sistemaDeMana.valorActual >= sistemaDeHabilidades.Habilidades[1].Consumo){
-            if (Time.time - _ultimoCast2 >= sistemaDeHabilidades.Habilidades[1].CoolDown){
+        if (sistemaDeMana.valorActual >= sistemaDeHabilidades.Habilidades[1].Consumo)
+        {
+            if (Time.time - _ultimoCast2 >= sistemaDeHabilidades.Habilidades[1].CoolDown)
+            {
                 return true;
             }
         }
@@ -118,12 +120,21 @@ public class Mago : PortadorJugable
 
     private bool Disponible3()
     {
-        if (sistemaDeMana.valorActual >= sistemaDeHabilidades.Habilidades[2].Consumo){
-            if (Time.time - _ultimoCast3 >= sistemaDeHabilidades.Habilidades[2].CoolDown){
+        if (sistemaDeMana.valorActual >= sistemaDeHabilidades.Habilidades[2].Consumo)
+        {
+            if (Time.time - _ultimoCast3 >= sistemaDeHabilidades.Habilidades[2].CoolDown)
+            {
                 return true;
             }
         }
         return false;
+    }
+
+    private void SetupCooldown()
+    {
+        _ultimoCast1 = sistemaDeHabilidades.Habilidades[0].CoolDown * -1;
+        _ultimoCast2 = sistemaDeHabilidades.Habilidades[1].CoolDown * -1;
+        _ultimoCast3 = sistemaDeHabilidades.Habilidades[2].CoolDown * -1;
     }
     
 }

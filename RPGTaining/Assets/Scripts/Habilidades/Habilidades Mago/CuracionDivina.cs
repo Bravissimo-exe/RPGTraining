@@ -12,7 +12,7 @@
         public CuracionDivina() : base ("Curación Divina", null,"Descripción Curación", 30, 12){
         }
 
-        public void Usar(Portador portador){
+        public void Usar(PortadorJugable portador){
             this.portador = portador;
             Lanzar();
         }
