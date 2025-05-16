@@ -25,10 +25,10 @@ public class BolaDeLuz : Habilidad
     {
     }
 
-    public BolaDeLuz(string nombre) : base(nombre, null, "Descripcion de habilidad genérica", 10f, 5f)
+    public BolaDeLuz(string nombre) : base(nombre, null, "Descripcion de habilidad genérica", 10, 5f)
     {
     }
-    public BolaDeLuz() : base("Bola de Luz", null, "Descripción Bola de Luz", 10f, 3f){
+    public BolaDeLuz() : base("Bola de Luz", null, "Descripción Bola de Luz", 10, 3f){
     }
 
     private IEnumerator Cargar(){
