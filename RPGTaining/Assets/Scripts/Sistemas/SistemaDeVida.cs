@@ -42,7 +42,6 @@ public class SistemaDeVida : SistemaDeEstadisticas
     }
 
     public void Daño(int cantidad){
-        Debug.Log("sex");
         if(valorActual > valorMin){
             valorActual -= cantidad;
         }
