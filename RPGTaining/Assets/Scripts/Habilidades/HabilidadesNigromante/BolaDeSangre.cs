@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BolaDeSangre : Habilidad
-{   
-     private int dañoBase = 10;
+{
+    private int dañoBase = 10;
     private int nivelCarga = 0;
     private int cargaMaxima = 3;
     private float tiempoPorCarga = 1f;
@@ -19,33 +19,39 @@ public class BolaDeSangre : Habilidad
 
     GameObject instanciaBola;
 
-    public BolaDeSangre(string nombre, Sprite icono, string descripcion, int consumo, float coolDown) : base(nombre, icono, descripcion, consumo, coolDown)
+    public BolaDeSangre(string nombre, Sprite icono, string descripcion, float consumo, float coolDown) : base(nombre, icono, descripcion, consumo, coolDown)
     {
     }
 
-    public BolaDeSangre(string nombre) : base(nombre, null, "Descripcion de habilidad genérica", 10, 5f)
+    public BolaDeSangre(string nombre) : base(nombre, null, "Descripcion de habilidad genérica", 10f, 5f)
     {
     }
-    public BolaDeSangre() : base("Bola de Luz", null, "Descripción Bola de Sangre", 10, 3f){
+    public BolaDeSangre() : base("Bola de Luz", null, "Descripción Bola de Sangre", 10f, 3f)
+    {
     }
 
-    private IEnumerator Cargar(){
+    private IEnumerator Cargar()
+    {
         nivelCarga = 1;
-        while(nivelCarga < cargaMaxima){
+        while (nivelCarga < cargaMaxima)
+        {
             yield return new WaitForSeconds(tiempoPorCarga);
             nivelCarga++;
             Debug.Log("Carga Actual: " + nivelCarga);//Reemplazar por verlo en UI
-            
+
         }
     }
 
-    public void EmpezarCarga(MonoBehaviour mono){
+    public void EmpezarCarga(MonoBehaviour mono)
+    {
         controladorMono = mono;
         rutinaCarga = mono.StartCoroutine(Cargar());
-        instanciaBola = Object.Instantiate(prefabsBolas, prefabPosicion.position, prefabRotacion.rotation);
+
+
     }
 
-    public void SoltarCarga(GameObject bolaSangre, Transform posicion, Transform rotacion){
+    public void SoltarCarga(GameObject bolaSangre, Transform posicion, Transform rotacion)
+    {
         prefabsBolas = bolaSangre;
         prefabPosicion = posicion;
         prefabRotacion = rotacion;
@@ -62,19 +68,21 @@ public class BolaDeSangre : Habilidad
 
     public override void Lanzar()
     {
-        
-        Rigidbody rb;
-        
-        instanciaBola = Object.Instantiate(prefabsBolas, prefabPosicion.position, prefabRotacion.rotation);
 
-        if(instanciaBola != null){
+        Rigidbody rb;
+
+
+
+        if (instanciaBola != null)
+        {
             instanciaBola.GetComponent<BolaLuzImpacto>().Daño = dañoBase * nivelCarga;
             Object.Destroy(instanciaBola, 5f);
             rb = instanciaBola.GetComponent<Rigidbody>();
             rb.linearVelocity = prefabRotacion.forward * 10f;
         }
-        
+
         ultimoCast = Time.time;
         nivelCarga = 0;
     }
+    
 }

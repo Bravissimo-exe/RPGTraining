@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Nigromante : PortadorJugable
 {
@@ -19,24 +20,31 @@ public class Nigromante : PortadorJugable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        InicializarVida(100);
         camara = GameObject.Find("Camara");
         sistemaDeHabilidades = gameObject.AddComponent<SistemaDeHabilidades>();
-        AñadirVidaUiJugador(camara, sistemaVida.valorMax);
+        sistemaDeHabilidades.AñadirHabilidad(new BolaDeSangre("Bola De Sangre"));
     }
 
     // Update is called once per frame
     void Update()
     {
         ActualizarVida(sistemaVida.valorActual);
-
-        if(Input.GetKeyDown(KeyCode.Alpha1) ){
-            if(sistemaDeHabilidades.Habilidades[0] is BolaDeSangre habilidad1){
+        Debug.Log("vida: " + sistemaVida.valorActual);
+        
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            if (sistemaDeHabilidades.Habilidades[0] is BolaDeSangre habilidad1)
+            {
                 _pasoPorCarga = true;
                 habilidad1.EmpezarCarga(this);
+                Debug.Log("sexoooooo");
             }
         }
-        else if(Input.GetKeyUp(KeyCode.Alpha1)  && _pasoPorCarga){
-            if(sistemaDeHabilidades.Habilidades[0] is BolaDeSangre habilidad1){
+        else if (Input.GetKeyUp(KeyCode.Alpha1) && _pasoPorCarga)
+        {
+            if (sistemaDeHabilidades.Habilidades[0] is BolaDeSangre habilidad1)
+            {
                 habilidad1.SoltarCarga(prefabBola, shootPoint, rotacionCamara);
                 _pasoPorCarga = false;
                 _ultimoCast1 = Time.time;
