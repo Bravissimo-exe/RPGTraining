@@ -28,22 +28,5 @@ public class RayoCelestialComportamiento : MonoBehaviour
         }
     }
 
-    // private void OnTriggerEnter(Collider other)
-    // {
-    //     IDañable dañable = other.GetComponent<IDañable>();
-    //     if (dañable != null)
-    //     {
-    //         objetosDentro.Add(dañable);
-    //     }
-    // }
-
-    // private void OnTriggerExit(Collider other)
-    // {
-    //     IDañable dañable = other.GetComponent<IDañable>();
-    //     if (dañable != null && objetosDentro.Contains(dañable))
-    //     {
-    //         objetosDentro.Remove(dañable);
-    //     }
-    // }
 
 }
