@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Mago : PortadorJugable
 {
+    private GameObject camara;
 
     //Referencias
     //Habilidad1
@@ -32,7 +33,8 @@ public class Mago : PortadorJugable
 
     void Start()
     {
-        AñadirVidaUiJugador(this.gameObject, sistemaVida.valorMax);
+        camara = GameObject.Find("Camara");
+        AñadirVidaUiJugador(camara, sistemaVida.valorMax);
         SetupSistemas();
         sistemaDeHabilidades.AñadirHabilidad(new BolaDeLuz("Bola de Luz"));
         sistemaDeHabilidades.AñadirHabilidad(new CuracionDivina());
