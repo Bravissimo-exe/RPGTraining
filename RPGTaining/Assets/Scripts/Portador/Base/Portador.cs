@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public abstract class Portador : MonoBehaviour, IDañable, ICurable
 {   
+    //HPTTTTTTTTTTTTTTTT
     [SerializeField] private Slider barraVida;
     protected GameObject vidaPrefab;
 
