@@ -46,7 +46,7 @@ public class SistemaDeMana : SistemaDeEstadisticas
             cantidadAñadida += manaPorSegundo;
             AñadirMana(manaPorSegundo);
 
-            await Task.Delay(1000);
+            await Task.Delay(500); //Cura cada medio segundo
         }
     }
 

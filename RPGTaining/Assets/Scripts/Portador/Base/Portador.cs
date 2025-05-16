@@ -17,14 +17,16 @@ public abstract class Portador : MonoBehaviour, IDañable, ICurable
     }
 
 
-    protected void InicializarVida(int vidaMax){
+    protected void InicializarVida(int vidaMax)
+    {
         sistemaVida = new SistemaDeVida(vidaMax);
     }
 
-    protected void AñadirVidaUiJugador(GameObject Padre, int vidaMax){
-        
+    protected void AñadirVidaUiJugador(GameObject Padre, int vidaMax)
+    {
+
         vidaPrefab = Resources.Load<GameObject>("UI/BarraDeVidaPlayer");
-        if(vidaPrefab == null) return;
+        if (vidaPrefab == null) return;
 
         GameObject UI = GameObject.Instantiate(vidaPrefab, Padre.transform);
 
@@ -33,10 +35,11 @@ public abstract class Portador : MonoBehaviour, IDañable, ICurable
         barraVida.value = vidaMax;
     }
 
-    protected void AñadirVidaUi(GameObject Padre, int vidaMax){
+    protected void AñadirVidaUi(GameObject Padre, int vidaMax)
+    {
         Debug.Log("hola");
         vidaPrefab = Resources.Load<GameObject>("UI/BarraDeVida");
-        if(vidaPrefab == null) return;
+        if (vidaPrefab == null) return;
 
         GameObject UI = GameObject.Instantiate(vidaPrefab, Padre.transform);
 
@@ -45,17 +48,25 @@ public abstract class Portador : MonoBehaviour, IDañable, ICurable
         barraVida.value = vidaMax;
     }
 
-    protected void ActualizarVida(int vidaActual){
+    protected void ActualizarVida(int vidaActual)
+    {
         barraVida.value = vidaActual;
-        
-    }
-    
-    public void Curar(int cantidad){
-        sistemaVida.RegenerarVida(cantidad);
+
     }
 
-    public void RecibirDaño(int daño){
-        sistemaVida.Daño(daño);
+    public void Curar(int cantidad)
+    {
+        sistemaVida.Curar(cantidad);
+    }
+
+    public void RecibirDaño(int daño)
+    {
+        sistemaVida.valorActual -= daño;
+    }
+
+    public void Morir()
+    {
+        Destroy(this);
     }
     
 }
