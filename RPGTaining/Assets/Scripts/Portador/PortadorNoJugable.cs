@@ -11,7 +11,7 @@ public class PortadorNoJugable : Portador
         InicializarVida(100);
     }
 
-     void Start()
+    void Start()
     {
         AñadirVidaUi(this.gameObject, sistemaVida.valorMax);
     }
@@ -21,4 +21,5 @@ public class PortadorNoJugable : Portador
     {
         ActualizarVida(sistemaVida.valorActual);
     }
+  
 }
