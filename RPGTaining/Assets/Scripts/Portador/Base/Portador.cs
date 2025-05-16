@@ -22,7 +22,7 @@ public abstract class Portador : MonoBehaviour, IDañable, ICurable
     }
 
     protected void AñadirVidaUiJugador(GameObject Padre, int vidaMax){
-
+        
         vidaPrefab = Resources.Load<GameObject>("UI/BarraDeVidaPlayer");
         if(vidaPrefab == null) return;
 

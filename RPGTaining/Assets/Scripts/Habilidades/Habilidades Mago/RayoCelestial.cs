@@ -2,22 +2,29 @@ using UnityEngine;
 
 public class RayoCelestial : Habilidad
 {
-    public RayoCelestial(string nombre) : base(nombre)
-    {
-    }
+    private int dañoPorTic = 1;
+    private float duracion = 5f;
 
-    public RayoCelestial(string nombre, Sprite icono, string descripcion, float consumo, float coolDown) : base(nombre, icono, descripcion, consumo, coolDown)
-    {
-    }
-
-    public RayoCelestial() : base("Rayo Celestial", null, "Descripcion Rayo Celestial", 30, 15f){
-
-    }
-
+    private GameObject zonaPrefab;
+    private Transform zonaPosicion;
     
+    public RayoCelestial(string nombre) : base(nombre, null, "Holaquehace", 30, 10f)
+    {
+    }
+    public RayoCelestial() : base("Rayo Celestial", null,"Descripción Rayo Celestial", 30, 6f) { }
+
+    public void Usar(GameObject prefab, Transform posicion)
+    {
+        zonaPrefab = prefab;
+        zonaPosicion = posicion;
+        Lanzar();
+    }
 
     public override void Lanzar()
     {
-        throw new System.NotImplementedException();
+        GameObject instancia = Object.Instantiate(zonaPrefab, zonaPosicion.position, Quaternion.identity);
+        instancia.GetComponent<RayoCelestialComportamiento>().DañoPorSegundo = dañoPorTic;
+        Object.Destroy(instancia, duracion);
     }
+
 }

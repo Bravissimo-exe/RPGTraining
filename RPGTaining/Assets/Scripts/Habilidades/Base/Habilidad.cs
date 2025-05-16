@@ -5,11 +5,11 @@ public abstract class Habilidad
     [SerializeField] private string nombre;
     [SerializeField] private Sprite icono;
     [SerializeField] private string descripcion;
-    [SerializeField] private float consumo;
+    [SerializeField] private int consumo;
     [SerializeField] private float coolDown;
 
 
-    public Habilidad(string nombre, Sprite icono, string descripcion, float consumo, float coolDown)
+    public Habilidad(string nombre, Sprite icono, string descripcion, int consumo, float coolDown)
     {
         this.Nombre = nombre;
         this.Icono = icono;
@@ -29,7 +29,7 @@ public abstract class Habilidad
     public string Nombre { get => nombre; set => nombre = value; }
     public Sprite Icono { get => icono; set => icono = value; }
     public string Descripcion { get => descripcion; set => descripcion = value; }
-    public float Consumo { get => consumo; set => consumo = value; }
+    public int Consumo { get => consumo; set => consumo = value; }
     public float CoolDown { get => coolDown; set => coolDown = value; }
 
     public abstract void Lanzar();

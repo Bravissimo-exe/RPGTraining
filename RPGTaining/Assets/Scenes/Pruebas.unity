@@ -744,6 +744,8 @@ MonoBehaviour:
   - {fileID: 253874949236609186, guid: ec0afd9504f91bb45956c195d49e62bc, type: 3}
   shootPoint: {fileID: 1761733525}
   rotacionCamara: {fileID: 1811481300}
+  prefabZona: {fileID: 5642572533826207277, guid: a514dcae0b2d1df4d907a8848ac777a5, type: 3}
+  shootPointZona: {fileID: 954573773}
 --- !u!1 &425110192
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,7 +1085,7 @@ Transform:
   m_GameObject: {fileID: 954573772}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.34423524, y: -8.334475, z: 12.236022}
+  m_LocalPosition: {x: 0.67, y: 0, z: 5.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -2,8 +2,7 @@
 
     public class CuracionDivina : Habilidad
     {
-        private int cantidadCuracion;
-        private float ultimoCast;
+        private int cantidadCuracion = 30;
 
         private Portador portador;
 
@@ -13,9 +12,8 @@
         public CuracionDivina() : base ("Curación Divina", null,"Descripción Curación", 30, 12){
         }
 
-        public void Usar(Portador portador, int cantidad){
+        public void Usar(PortadorJugable portador){
             this.portador = portador;
-            cantidadCuracion = cantidad;
             Lanzar();
         }
 
