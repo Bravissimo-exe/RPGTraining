@@ -55,7 +55,6 @@ public abstract class Portador : MonoBehaviour, IDañable, ICurable
     }
 
     public void RecibirDaño(int daño){
-        Debug.Log("ssz");
         sistemaVida.Daño(daño);
     }
     
