@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Mago : PortadorJugable
 {
-
     //Referencias
     [SerializeField] private List<GameObject> prefabsBolas = new List<GameObject>();
     [SerializeField] private Transform shootPoint;
@@ -22,8 +22,8 @@ public class Mago : PortadorJugable
     //Por lo que las cosas las debemos inicializar en el Awake
 
     void Start(){
+        InicializarVida(100);
         camara = GameObject.Find("Camara");
-        AñadirVidaUiJugador(camara, sistemaVida.valorMax);
         SetupSistemas();
         sistemaDeHabilidades.AñadirHabilidad(new BolaDeLuz("Bola de Luz"));
         sistemaDeHabilidades.AñadirHabilidad(new CuracionDivina());

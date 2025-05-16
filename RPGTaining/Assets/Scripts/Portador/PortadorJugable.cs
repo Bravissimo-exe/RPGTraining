@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PortadorJugable : Portador
 {
@@ -20,7 +21,7 @@ public class PortadorJugable : Portador
 
     void Awake()
     {
-        InicializarVida(100);
+        
         Debug.Log("sexo5");
         añadirMovimiento();
         añadirCamara();
