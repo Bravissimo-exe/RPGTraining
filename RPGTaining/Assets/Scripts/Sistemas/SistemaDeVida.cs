@@ -22,9 +22,7 @@ public class SistemaDeVida : SistemaDeEstadisticas
         if (valorActual < valorMin)
             valorActual = 0;
     }
-
-
-
+    //NO HE DORMIDO
     public void Curar(int cantidad)
     {
         valorActual += cantidad;
