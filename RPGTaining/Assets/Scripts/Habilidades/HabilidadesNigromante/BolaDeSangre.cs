@@ -1,22 +1,18 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BolaDeSangre : Habilidad
 {
     private int dañoBase = 10;
-    private int nivelCarga = 0;
-    private int cargaMaxima = 3;
-    private float tiempoPorCarga = 1f;
-    private float ultimoCast;
-    private Coroutine rutinaCarga;
-    private MonoBehaviour controladorMono;
+    private float inicioCarga;
+    private int finalCarga;
 
     //Referencias para Instanciar las habilidades
-    private GameObject prefabsBolas;
-    private Transform prefabPosicion;
+    private Transform firePoint;
     private Transform prefabRotacion;
+    private Rigidbody bolaRb;
 
     GameObject instanciaBola;
 
@@ -24,63 +20,47 @@ public class BolaDeSangre : Habilidad
     {
     }
 
-    public BolaDeSangre(String nombre) : base(nombre)
+    public BolaDeSangre(string nombre) : base(nombre)
     {
     }
 
-    private IEnumerator Cargar()
+    public void PrefabsSetters(Transform firePoint, Transform prefabRotacion)
     {
-        nivelCarga = 1;
-        while (nivelCarga < cargaMaxima)
-        {
-            yield return new WaitForSeconds(tiempoPorCarga);
-            nivelCarga++;
-            Debug.Log("Carga Actual: " + nivelCarga);//Reemplazar por verlo en UI
+        this.prefabRotacion = prefabRotacion;
+        this.firePoint = firePoint;
+    }
 
+    public void Instanciar(GameObject bola)
+    {
+        if (instanciaBola == null)
+        {
+            instanciaBola = Object.Instantiate(bola, firePoint.position, prefabRotacion.rotation);
+            bolaRb = instanciaBola.GetComponent<Rigidbody>();
+            instanciaBola.GetComponent<Collider>().enabled = false;
+            bolaRb.isKinematic = true;
+            inicioCarga = Time.time;
         }
     }
-
-    public void EmpezarCarga(MonoBehaviour mono)
+    public void mantener(Transform point, Transform rotation)
     {
-        controladorMono = mono;
-        rutinaCarga = mono.StartCoroutine(Cargar());
 
-
-    }
-
-    public void SoltarCarga(GameObject bolaSangre, Transform posicion, Transform rotacion)
-    {
-        prefabsBolas = bolaSangre;
-        prefabPosicion = posicion;
-        prefabRotacion = rotacion;
-
-        if (rutinaCarga != null)
-        {
-            // Cancela la carga si aún está en progreso
-            // (si no es qué simplemente ya terminó)
-            controladorMono.StopCoroutine(rutinaCarga);
-        }
-
-        Lanzar();
+        instanciaBola.transform.position = point.position;
+        instanciaBola.transform.rotation = rotation.rotation;
     }
 
     public override void Lanzar()
     {
-
-        Rigidbody rb;
-
-
-
-        if (instanciaBola != null)
+        if (instanciaBola != null && bolaRb != null)
         {
-            instanciaBola.GetComponent<BolaLuzImpacto>().Daño = dañoBase * nivelCarga;
-            UnityEngine.Object.Destroy(instanciaBola, 5f);
-            rb = instanciaBola.GetComponent<Rigidbody>();
-            rb.linearVelocity = prefabRotacion.forward * 10f;
-        }
+            finalCarga = (int)(Time.time - inicioCarga);
 
-        ultimoCast = Time.time;
-        nivelCarga = 0;
+            bolaRb.isKinematic = false;
+            bolaRb.linearVelocity = prefabRotacion.forward * 30f; // Usar velocity en lugar de linearVelocity
+            instanciaBola.GetComponent<Collider>().enabled = true;
+            instanciaBola.GetComponent<BolaSangreImpacto>().Daño = (int)(dañoBase * (finalCarga + 5));
+            instanciaBola = null; // Permitir crear una nueva instancia
+            Debug.Log("Daño: " + (dañoBase * (finalCarga + 2.5)));
+        }
     }
-    
+
 }

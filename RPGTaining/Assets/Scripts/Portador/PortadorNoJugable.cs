@@ -9,7 +9,7 @@ public class PortadorNoJugable : Portador
 
     void Awake()
     {
-        InicializarVida(100);
+        InicializarVida(1000);
     }
 
     void Start()
