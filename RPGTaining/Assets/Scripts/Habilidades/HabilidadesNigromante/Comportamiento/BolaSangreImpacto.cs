@@ -16,6 +16,7 @@ public class BolaSangreImpacto : MonoBehaviour
     void Update()
     {
         transform.localScale += scaleChange;
+        Destroy(gameObject, 3f);
     }
 
     public void OnCollisionEnter(Collision otro)

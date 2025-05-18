@@ -6,13 +6,10 @@ using UnityEngine.UIElements;
 public class BolaDeSangre : Habilidad
 {
     private int dañoBase = 10;
-    private int nivelCarga = 0;
     private float inicioCarga;
     private int finalCarga;
-    private MonoBehaviour controladorMono;
 
     //Referencias para Instanciar las habilidades
-    private GameObject prefabsBolas;
     private Transform firePoint;
     private Transform prefabRotacion;
     private Rigidbody bolaRb;
@@ -39,6 +36,7 @@ public class BolaDeSangre : Habilidad
         {
             instanciaBola = Object.Instantiate(bola, firePoint.position, prefabRotacion.rotation);
             bolaRb = instanciaBola.GetComponent<Rigidbody>();
+            instanciaBola.GetComponent<Collider>().enabled = false;
             bolaRb.isKinematic = true;
             inicioCarga = Time.time;
         }
@@ -58,16 +56,11 @@ public class BolaDeSangre : Habilidad
 
             bolaRb.isKinematic = false;
             bolaRb.linearVelocity = prefabRotacion.forward * 30f; // Usar velocity en lugar de linearVelocity
-
+            instanciaBola.GetComponent<Collider>().enabled = true;
             instanciaBola.GetComponent<BolaSangreImpacto>().Daño = (int)(dañoBase * (finalCarga + 5));
             instanciaBola = null; // Permitir crear una nueva instancia
             Debug.Log("Daño: " + (dañoBase * (finalCarga + 2.5)));
         }
-    }
-
-    public int VidaConsumida()
-    {
-        return dañoBase + finalCarga;
     }
 
 }
