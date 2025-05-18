@@ -20,7 +20,6 @@ public class PortadorNoJugable : Portador
     // Update is called once per frame
     void Update()
     {
-        ActualizarVida(sistemaVida.valorActual);
     }
   
 }

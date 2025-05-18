@@ -69,7 +69,6 @@ public class Nigromante : PortadorJugable
 
     void Update()
     {
-        ActualizarVida(sistemaVida.valorActual);
 
         //Habilidad 1
 

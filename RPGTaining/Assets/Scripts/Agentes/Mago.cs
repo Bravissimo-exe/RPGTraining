@@ -34,7 +34,8 @@ public class Mago : PortadorJugable
 
     //UI
     private UIHabilidades uiHabilidades;
-    private UIMana uimana;
+    private UIMana uiMana;
+    private UIVida uiVida;
 
     public Mago(string nombre, SistemaDeVida sistemaDeVida, SistemaDeMana sistemaDeMana, SistemaDeHabilidades sistemaDeHabilidades) : base(nombre, sistemaDeVida, sistemaDeMana, sistemaDeHabilidades)
     {
@@ -47,7 +48,9 @@ public class Mago : PortadorJugable
     {
         camara = GameObject.Find("Camara");
         uiHabilidades = FindFirstObjectByType<UIHabilidades>();
-        uimana = FindFirstObjectByType<UIMana>();
+        uiMana = FindFirstObjectByType<UIMana>();
+        uiVida = FindFirstObjectByType<UIVida>();
+
         SetupSistemas();
 
         sistemaDeHabilidades.AñadirHabilidad(new BolaDeLuz(icono1));
@@ -60,9 +63,9 @@ public class Mago : PortadorJugable
 
     void Update()
     {
-        ActualizarVida(sistemaVida.valorActual);
         ActualizarUIHabilidades();
-        uimana.ActualizarMana(sistemaDeMana.valorActual, sistemaDeMana.valorMax);
+        uiMana.ActualizarMana(sistemaDeMana.valorActual, sistemaDeMana.valorMax);
+        uiVida.ActualizarUIVida(sistemaVida.valorActual, sistemaVida.valorMax);
 
 
         //Habilidad 1
