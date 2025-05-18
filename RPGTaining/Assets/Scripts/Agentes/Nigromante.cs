@@ -1,62 +1,92 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Nigromante : PortadorJugable
 {
+    [Header("Referencias")]
     [SerializeField] private GameObject prefabBola;
     [SerializeField] private Transform shootPoint;
     [SerializeField] private Transform rotacionCamara;
 
-    private float _ultimoCast1;
-    private bool _pasoPorCarga;
+    private BolaDeSangre habilidad1;
+    private bool corriendoGastoVida;
 
-    private GameObject camara;
-
-    public Nigromante(string nombre, SistemaDeVida sistemaDeVida, SistemaDeHabilidades sistemaDeHabilidades) : base(nombre, sistemaDeVida, sistemaDeHabilidades)
+    public Nigromante(string nombre, SistemaDeVida sistemaDeVida, SistemaDeMana sistemaDeMana, SistemaDeHabilidades sistemaDeHabilidades) : base(nombre, sistemaDeVida, sistemaDeMana, sistemaDeHabilidades)
     {
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // Eliminar el constructor (no válido en MonoBehaviour)
     void Start()
     {
-        InicializarVida(100);
-        sistemaDeHabilidades = gameObject.AddComponent<SistemaDeHabilidades>();
-        sistemaDeHabilidades.AñadirHabilidad(new BolaDeSangre("Bola De Sangre"));
+        InicializarVida(500);
+        InicializarHabilidades();
+        InicializarHabilidadBola();
     }
 
-    // Update is called once per frame
+    private void InicializarHabilidades()
+    {
+        // Obtener o crear SistemaDeHabilidades
+        sistemaDeHabilidades = GetComponent<SistemaDeHabilidades>();
+        if (sistemaDeHabilidades == null)
+        {
+            sistemaDeHabilidades = gameObject.AddComponent<SistemaDeHabilidades>();
+        }
+
+        // Crear y asignar la habilidad
+        InicializarHabilidadBola();
+        sistemaDeHabilidades.AñadirHabilidad(habilidad1);
+    }
+
+    private void InicializarHabilidadBola()
+    {
+        habilidad1 = new BolaDeSangre("Bola De Sangre");
+        habilidad1.PrefabsSetters(shootPoint, rotacionCamara); // Pasamos la REFERENCIA al Transform
+    }
+
     void Update()
     {
         ActualizarVida(sistemaVida.valorActual);
-        Debug.Log("vida: " + sistemaVida.valorActual);
-        
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            if (sistemaDeHabilidades.Habilidades[0] is BolaDeSangre habilidad1)
+            if (habilidad1 != null)
             {
-                _pasoPorCarga = true;
-                habilidad1.EmpezarCarga(this);
-                Debug.Log("sexoooooo");
+                habilidad1.Instanciar(prefabBola);
             }
         }
-        else if (Input.GetKeyUp(KeyCode.Alpha1) && _pasoPorCarga)
+
+        if (Input.GetKey(KeyCode.Alpha1))
         {
-            if (sistemaDeHabilidades.Habilidades[0] is BolaDeSangre habilidad1)
+            habilidad1.mantener(shootPoint, rotacionCamara);
+
+            if (!corriendoGastoVida)
             {
-                habilidad1.SoltarCarga(prefabBola, shootPoint, rotacionCamara);
-                _pasoPorCarga = false;
-                _ultimoCast1 = Time.time;
+                StartCoroutine(GastoVida());
             }
+            corriendoGastoVida = false;
+        }
+
+
+        else if (Input.GetKeyUp(KeyCode.Alpha1))
+        {
+            if (habilidad1 != null)
+            {
+                habilidad1.Lanzar();
+                Debug.Log("Bola lanzada!");
+            }
+
         }
     }
+     public IEnumerator GastoVida()
+    {
+        corriendoGastoVida = true;
 
-    // private bool Disponible1(){
-    //     if(sistemaVida.valorActual >= sistemaDeHabilidades.Habilidades[0].Consumo){
-    //         if(Time.time - _ultimoCast1 >= sistemaDeHabilidades.Habilidades[0].CoolDown){
-    //             return true;
-    //         }
-    //     }
-    //     return false;
-    // }
+        while (Input.GetKey(KeyCode.Alpha1))
+        {
+            RecibirDaño(1); // Quita 1 de vida cada cierto tiempo
+            yield return new WaitForSeconds(100000f); // <-- AJUSTA AQUÍ la velocidad (por ejemplo, 1.5 segundos entre cada daño)
+        }
+    }
 }

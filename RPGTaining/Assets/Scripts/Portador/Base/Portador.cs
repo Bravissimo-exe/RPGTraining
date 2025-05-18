@@ -31,12 +31,11 @@ public abstract class Portador : MonoBehaviour, IDañable, ICurable
     }
     
     public void Curar(int cantidad){
-        sistemaVida.RegenerarVida(cantidad);
+        sistemaVida.Curar(cantidad);
     }
 
     public void RecibirDaño(int daño){
-        Debug.Log("ssz");
-        sistemaVida.Daño(daño);
+        sistemaVida.RecibirDaño(daño);
     }
     
 }

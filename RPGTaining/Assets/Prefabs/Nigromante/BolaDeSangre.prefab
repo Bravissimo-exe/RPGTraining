@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2924663438141355234}
   - component: {fileID: 1226273828970558470}
   - component: {fileID: 9135512301913140439}
-  - component: {fileID: 7621029780670646991}
   - component: {fileID: -26817391361954022}
+  - component: {fileID: 7397046676847385707}
   m_Layer: 0
   m_Name: BolaDeSangre
   m_TagString: Untagged
@@ -110,18 +110,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7621029780670646991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6201591222757221149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f77004f5af3965e4a8688724dd71288f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &-26817391361954022
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -145,7 +133,19 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7397046676847385707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6201591222757221149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb13fe8cee52e847aa6bd3072e9795d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
