@@ -56,7 +56,9 @@ public abstract class Portador : MonoBehaviour, IDañable, ICurable
 
     public void Curar(int cantidad)
     {
-        sistemaVida.Curar(cantidad);
+        sistemaVida.valorActual += cantidad;
+        if (sistemaVida.valorActual > sistemaVida.valorMax)
+            sistemaVida.valorActual = sistemaVida.valorMax;
     }
 
     public void RecibirDaño(int daño)

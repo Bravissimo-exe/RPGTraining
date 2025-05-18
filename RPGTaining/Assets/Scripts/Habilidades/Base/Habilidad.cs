@@ -26,6 +26,15 @@ public abstract class Habilidad
         this.CoolDown = 5f;
     }
 
+    public Habilidad(Sprite icono)
+    {
+        this.Nombre = nombre;
+        this.Icono = icono;
+        this.Descripcion = "Descripcion de habilidad genérica";
+        this.Consumo = 10;
+        this.CoolDown = 5f;
+    }
+
     public string Nombre { get => nombre; set => nombre = value; }
     public Sprite Icono { get => icono; set => icono = value; }
     public string Descripcion { get => descripcion; set => descripcion = value; }
@@ -33,5 +42,9 @@ public abstract class Habilidad
     public float CoolDown { get => coolDown; set => coolDown = value; }
 
     public abstract void Lanzar();
+
+    public void AñadirIcono(Sprite icono){
+        Icono = icono;
+    }
 
 }
