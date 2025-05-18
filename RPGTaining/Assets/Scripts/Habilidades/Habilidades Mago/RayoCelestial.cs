@@ -25,7 +25,7 @@ public class RayoCelestial : Habilidad
     public override void Lanzar()
     {
         GameObject instancia = Object.Instantiate(zonaPrefab, zonaPosicion.position, Quaternion.identity);
-        instancia.GetComponent<RayoCelestialComportamiento>().DañoPorSegundo = dañoPorTic;
+        instancia.GetComponent<RayoCelestialComportamiento>().DañoPorTic = dañoPorTic;
         Object.Destroy(instancia, duracion);
     }
 
