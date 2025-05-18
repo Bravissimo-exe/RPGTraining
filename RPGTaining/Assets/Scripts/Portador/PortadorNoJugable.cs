@@ -13,12 +13,14 @@ public class PortadorNoJugable : Portador
 
     void Start()
     {
-        AñadirVidaUi(this.gameObject, sistemaVida.valorMax);
     }
 
     // Update is called once per frame
     void Update()
     {
+        ActualizarVida(sistemaVida.valorActual);
     }
+
+
   
 }

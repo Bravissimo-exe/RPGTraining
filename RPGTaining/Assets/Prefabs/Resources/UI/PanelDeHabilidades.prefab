@@ -167,9 +167,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c0e8a212efbb3649bd3e8a7045bc20b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imageHabilidad1: {fileID: 0}
-  imageHabilidad2: {fileID: 0}
-  imageHabilidad3: {fileID: 0}
+  imageHabilidad1: {fileID: 1139233995583279045}
+  imageHabilidad2: {fileID: 914486004883846121}
+  imageHabilidad3: {fileID: 7766459315445013327}
   habilidades:
   - bloqueo: {fileID: 2337440988878093920}
     textoCooldown: {fileID: 4517611346651828380}

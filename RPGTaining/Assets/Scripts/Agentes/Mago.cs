@@ -48,8 +48,8 @@ public class Mago : PortadorJugable
     {
         camara = GameObject.Find("Camara");
         uiHabilidades = FindFirstObjectByType<UIHabilidades>();
-        uiMana = FindFirstObjectByType<UIMana>();
         uiVida = FindFirstObjectByType<UIVida>();
+        uiMana = FindFirstObjectByType<UIMana>();
 
         SetupSistemas();
 
@@ -64,8 +64,9 @@ public class Mago : PortadorJugable
     void Update()
     {
         ActualizarUIHabilidades();
-        uiMana.ActualizarMana(sistemaDeMana.valorActual, sistemaDeMana.valorMax);
         uiVida.ActualizarUIVida(sistemaVida.valorActual, sistemaVida.valorMax);
+        uiMana.ActualizarMana(sistemaDeMana.valorActual, sistemaDeMana.valorMax);
+       
 
 
         //Habilidad 1

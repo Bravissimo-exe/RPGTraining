@@ -21,7 +21,6 @@ public class Nigromante : PortadorJugable
     {
         camara = GameObject.Find("Camara");
         sistemaDeHabilidades = gameObject.AddComponent<SistemaDeHabilidades>();
-        AñadirVidaUiJugador(camara, sistemaVida.valorMax);
     }
 
     // Update is called once per frame
