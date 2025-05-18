@@ -27,7 +27,6 @@ public class Nigromante : PortadorJugable
     // Update is called once per frame
     void Update()
     {
-        ActualizarVida(sistemaVida.valorActual);
 
         if(Input.GetKeyDown(KeyCode.Alpha1) ){
             if(sistemaDeHabilidades.Habilidades[0] is BolaDeSangre habilidad1){

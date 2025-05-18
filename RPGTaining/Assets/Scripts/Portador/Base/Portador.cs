@@ -47,11 +47,6 @@ public abstract class Portador : MonoBehaviour, IDañable, ICurable
         barraVida.value = vidaMax;
     }
 
-    protected void ActualizarVida(int vidaActual)
-    {
-        barraVida.value = vidaActual;
-
-    }
 
     public void Curar(int cantidad)
     {
