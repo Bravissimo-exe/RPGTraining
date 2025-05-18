@@ -5,8 +5,11 @@ public class RayoCelestialComportamiento : MonoBehaviour
 {
     private int dañoPorTic;
 
+    private float tiempoEntreChecks = 0.1f; // por ejemplo, 1 segundo
+    private float tiempoSiguienteCheck = 0f;
 
-    public int DañoPorSegundo { get => dañoPorTic; set => dañoPorTic = value; }
+
+    public int DañoPorTic { get => dañoPorTic; set => dañoPorTic = value; }
 
     void Start()
     {
@@ -17,16 +20,28 @@ public class RayoCelestialComportamiento : MonoBehaviour
     {
 
     }
-
+    
     private void OnTriggerStay(Collider other)
     {
-        IDañable dañable = other.GetComponent<IDañable>();
-        if (dañable != null)
+        if (Time.time >= tiempoSiguienteCheck)
         {
-            // dañable.RecibirDaño((int)(dañoPorTic * Time.deltaTime));
-            dañable.RecibirDaño(dañoPorTic);
+            IDañable dañable = other.GetComponent<IDañable>();
+            if (dañable != null)
+                dañable.RecibirDaño(dañoPorTic);
+                
+
+            // Reprograma el próximo chequeo
+            tiempoSiguienteCheck = Time.time + tiempoEntreChecks;
         }
     }
+
+    // private void OnTriggerStay(Collider other)
+    // {
+    //     IDañable dañable = other.GetComponent<IDañable>();
+    //     if (dañable != null)
+    //         dañable.RecibirDaño(dañoPorTic);
+
+    // }
 
 
 }
