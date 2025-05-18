@@ -33,14 +33,7 @@ public class Mago : PortadorJugable
     private float _ultimoCast3;
 
     //UI
-    [Header("UI")]
-    [SerializeField] private Image imageHabilidad1;
-    [SerializeField] private Image imageHabilidad2;
-    [SerializeField] private Image imageHabilidad3;
-
-    [SerializeField] private GameObject bloqueoHabilidad1;
-    [SerializeField] private GameObject bloqueoHabilidad2;
-    [SerializeField] private GameObject bloqueoHabilidad3;
+    private UIHabilidades uiHabilidades;
 
     public Mago(string nombre, SistemaDeVida sistemaDeVida, SistemaDeMana sistemaDeMana, SistemaDeHabilidades sistemaDeHabilidades) : base(nombre, sistemaDeVida, sistemaDeMana, sistemaDeHabilidades)
     {
@@ -52,6 +45,7 @@ public class Mago : PortadorJugable
     void Start()
     {
         camara = GameObject.Find("Camara");
+        uiHabilidades = FindFirstObjectByType<UIHabilidades>();
         AñadirVidaUiJugador(camara, sistemaVida.valorMax);
         SetupSistemas();
 
@@ -59,10 +53,7 @@ public class Mago : PortadorJugable
         sistemaDeHabilidades.AñadirHabilidad(new CuracionDivina(icono2));
         sistemaDeHabilidades.AñadirHabilidad(new RayoCelestial(icono3));
 
-        imageHabilidad1.sprite = icono1;
-        imageHabilidad2.sprite = icono2;
-        imageHabilidad3.sprite = icono3;
-
+        uiHabilidades.AsignarIconos(icono1, icono2, icono3);
         SetupCooldownHabilidades();
     }
 
@@ -162,9 +153,13 @@ public class Mago : PortadorJugable
 
     private void ActualizarUIHabilidades()
     {
-        bloqueoHabilidad1.SetActive(!Disponible1());
-        bloqueoHabilidad2.SetActive(!Disponible2());
-        bloqueoHabilidad3.SetActive(!Disponible3());
+        float restante1 = Mathf.Clamp(sistemaDeHabilidades.Habilidades[0].CoolDown - (Time.time - _ultimoCast1), 0, Mathf.Infinity);
+        float restante2 = Mathf.Clamp(sistemaDeHabilidades.Habilidades[1].CoolDown - (Time.time - _ultimoCast2), 0, Mathf.Infinity);
+        float restante3 = Mathf.Clamp(sistemaDeHabilidades.Habilidades[2].CoolDown - (Time.time - _ultimoCast3), 0, Mathf.Infinity);
+
+        uiHabilidades.ActualizarEstadoHabilidad(0, Disponible1(), restante1);
+        uiHabilidades.ActualizarEstadoHabilidad(1, Disponible2(), restante2);
+        uiHabilidades.ActualizarEstadoHabilidad(2, Disponible3(), restante3);
     }
     
 }
