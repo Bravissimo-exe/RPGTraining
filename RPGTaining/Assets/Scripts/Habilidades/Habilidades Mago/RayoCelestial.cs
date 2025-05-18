@@ -11,7 +11,9 @@ public class RayoCelestial : Habilidad
     public RayoCelestial(string nombre) : base(nombre, null, "Holaquehace", 30, 10f)
     {
     }
-    public RayoCelestial() : base("Rayo Celestial", null,"Descripción Rayo Celestial", 30, 6f) { }
+    public RayoCelestial() : base("Rayo Celestial", null,"Descripción Rayo Celestial", 30, 10f) { }
+
+    public RayoCelestial(Sprite icono) : base("Rayo Celestial", icono, "Descripcion Rayo Celestial", 30, 10f) { }
 
     public void Usar(GameObject prefab, Transform posicion)
     {
@@ -23,7 +25,7 @@ public class RayoCelestial : Habilidad
     public override void Lanzar()
     {
         GameObject instancia = Object.Instantiate(zonaPrefab, zonaPosicion.position, Quaternion.identity);
-        instancia.GetComponent<RayoCelestialComportamiento>().DañoPorSegundo = dañoPorTic;
+        instancia.GetComponent<RayoCelestialComportamiento>().DañoPorTic = dañoPorTic;
         Object.Destroy(instancia, duracion);
     }
 

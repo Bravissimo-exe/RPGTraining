@@ -27,24 +27,31 @@ public class BolaDeLuz : Habilidad
     public BolaDeLuz(string nombre) : base(nombre, null, "Descripcion de habilidad genérica", 10, 5f)
     {
     }
-    public BolaDeLuz() : base("Bola de Luz", null, "Descripción Bola de Luz", 10, 3f){
+    public BolaDeLuz() : base("Bola de Luz", null, "Descripción Bola de Luz", 10, 3f)
+    {
     }
 
-    private IEnumerator Cargar(){
+    public BolaDeLuz(Sprite icono) : base("Bola de Luz", icono, "Descripcion Bola de Luz", 10, 3f) { }
+
+    private IEnumerator Cargar()
+    {
         nivelCarga = 1;
-        while(nivelCarga <= cargaMaxima){
+        while (nivelCarga <= cargaMaxima)
+        {
             yield return new WaitForSeconds(tiempoPorCarga);
             nivelCarga++;
             Debug.Log("Carga Actual: " + nivelCarga);//Reemplazar por verlo en UI
         }
     }
 
-    public void EmpezarCarga(MonoBehaviour mono){
+    public void EmpezarCarga(MonoBehaviour mono)
+    {
         controladorMono = mono;
         rutinaCarga = mono.StartCoroutine(Cargar());
     }
 
-    public void SoltarCarga(List<GameObject> prefabs, Transform posicion, Transform rotacion){
+    public void SoltarCarga(List<GameObject> prefabs, Transform posicion, Transform rotacion)
+    {
         prefabsBolas = prefabs;
         prefabPosicion = posicion;
         prefabRotacion = rotacion;
@@ -85,13 +92,16 @@ public class BolaDeLuz : Habilidad
                 break;
         }
 
-        if(instanciaBola != null){
+        if (instanciaBola != null)
+        {
             instanciaBola.GetComponent<BolaLuzImpacto>().Daño = dañoBase * nivelCarga;
             Object.Destroy(instanciaBola, 5f);
             rb = instanciaBola.GetComponent<Rigidbody>();
             rb.linearVelocity = prefabRotacion.forward * 10f;
         }
-        
+
         nivelCarga = 0;
     }
+    
+    
 }
