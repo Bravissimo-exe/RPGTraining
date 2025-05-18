@@ -48,7 +48,6 @@ public class Mago : PortadorJugable
         camara = GameObject.Find("Camara");
         uiHabilidades = FindFirstObjectByType<UIHabilidades>();
         uimana = FindFirstObjectByType<UIMana>();
-        AñadirVidaUiJugador(camara, sistemaVida.valorMax);
         SetupSistemas();
 
         sistemaDeHabilidades.AñadirHabilidad(new BolaDeLuz(icono1));
