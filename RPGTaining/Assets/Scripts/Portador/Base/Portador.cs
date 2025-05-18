@@ -37,7 +37,6 @@ public abstract class Portador : MonoBehaviour, IDañable, ICurable
 
     protected void AñadirVidaUi(GameObject Padre, int vidaMax)
     {
-        Debug.Log("hola");
         vidaPrefab = Resources.Load<GameObject>("UI/BarraDeVida");
         if (vidaPrefab == null) return;
 
