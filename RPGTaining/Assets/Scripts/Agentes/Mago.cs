@@ -34,6 +34,7 @@ public class Mago : PortadorJugable
 
     //UI
     private UIHabilidades uiHabilidades;
+    private UIMana uimana;
 
     public Mago(string nombre, SistemaDeVida sistemaDeVida, SistemaDeMana sistemaDeMana, SistemaDeHabilidades sistemaDeHabilidades) : base(nombre, sistemaDeVida, sistemaDeMana, sistemaDeHabilidades)
     {
@@ -46,6 +47,7 @@ public class Mago : PortadorJugable
     {
         camara = GameObject.Find("Camara");
         uiHabilidades = FindFirstObjectByType<UIHabilidades>();
+        uimana = FindFirstObjectByType<UIMana>();
         AñadirVidaUiJugador(camara, sistemaVida.valorMax);
         SetupSistemas();
 
@@ -61,6 +63,7 @@ public class Mago : PortadorJugable
     {
         ActualizarVida(sistemaVida.valorActual);
         ActualizarUIHabilidades();
+        uimana.ActualizarMana(sistemaDeMana.valorActual, sistemaDeMana.valorMax);
 
 
         //Habilidad 1
@@ -70,6 +73,7 @@ public class Mago : PortadorJugable
             {
                 _pasoPorCarga = true;
                 habilidad1.EmpezarCarga(this);
+                sistemaDeMana.valorActual -= habilidad1.Consumo;
             }
         }
         else if (Input.GetKeyUp(KeyCode.Alpha1) && Disponible1() && _pasoPorCarga)
@@ -89,6 +93,7 @@ public class Mago : PortadorJugable
             {
                 habilidad2.Usar(this);
                 _ultimoCast2 = Time.time;
+                sistemaDeMana.valorActual -= habilidad2.Consumo;
             }
         }
 
@@ -99,6 +104,7 @@ public class Mago : PortadorJugable
             {
                 habilidad3.Usar(prefabZona, shootPointZona);
                 _ultimoCast3 = Time.time;
+                sistemaDeMana.valorActual -= habilidad3.Consumo;
             }
         }
     }
