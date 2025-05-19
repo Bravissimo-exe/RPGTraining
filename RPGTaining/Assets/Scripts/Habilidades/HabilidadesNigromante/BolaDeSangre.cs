@@ -16,7 +16,7 @@ public class BolaDeSangre : Habilidad
 
     GameObject instanciaBola;
 
-    public BolaDeSangre(string nombre, Sprite icono, string descripcion, int consumo, float coolDown) : base(nombre, icono, descripcion, consumo, coolDown)
+    public BolaDeSangre(Sprite icono) : base("Bola de sangre", icono, "Bola de sangre que consume Vida", 10, 5f)
     {
     }
 

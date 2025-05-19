@@ -10,7 +10,7 @@ public class SangrePutrefacta : Habilidad
 
     private Quaternion rotacion = new Quaternion(0,0,0,0);
 
-    public SangrePutrefacta(string nombre) : base(nombre)
+     public SangrePutrefacta(Sprite icono) : base("Sangre putrefacta", icono, "Charco de sangre que consume Vida", 10, 5f)
     {
     }
 
@@ -28,7 +28,7 @@ public class SangrePutrefacta : Habilidad
             Debug.Log("instanciado");
         }
     }
-    
+
     public void Mantener(Transform point)
     {
         instanciaZona.transform.position = point.position;
