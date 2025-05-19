@@ -184,11 +184,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barraVida: {fileID: 2346421996657470669}
+  icono1: {fileID: 21300000, guid: cd9455561a17fd542977998dbea26587, type: 3}
   prefabBola: {fileID: 6201591222757221149, guid: 8987be580b8b24a439b89849fca4f0df, type: 3}
   shootPoint: {fileID: 8437504927377661946}
   rotacionCamara: {fileID: 7324700001324620935}
+  icono2: {fileID: 21300000, guid: dbec596f2bcb7d842bc30624128a36ae, type: 3}
   prefabZona: {fileID: 6678604719052058912, guid: d37bf7fe43c3b614494fe47bdfaa1efe, type: 3}
   spawnPoint: {fileID: 304031125764950389}
+  icono3: {fileID: 21300000, guid: e5d8db94bcfdc1343a4aa6bc13ae18e8, type: 3}
 --- !u!1 &5689999189139971214
 GameObject:
   m_ObjectHideFlags: 0
