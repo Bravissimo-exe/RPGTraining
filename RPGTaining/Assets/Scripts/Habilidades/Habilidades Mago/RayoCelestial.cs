@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class RayoCelestial : Habilidad
 {
-    private int dañoPorTic = 1;
+    private int dañoPorTic = 10;
     private float duracion = 5f;
 
     private GameObject zonaPrefab;

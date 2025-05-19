@@ -6,7 +6,7 @@ using UnityEngine;
 public class BolaDeLuz : Habilidad
 {
 
-    private int dañoBase = 10;
+    private int dañoBase = 20;
     private int nivelCarga = 0;
     private int cargaMaxima = 3;
     private float tiempoPorCarga = 1f;
