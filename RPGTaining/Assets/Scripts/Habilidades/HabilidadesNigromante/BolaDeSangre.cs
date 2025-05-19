@@ -20,10 +20,6 @@ public class BolaDeSangre : Habilidad
     {
     }
 
-    public BolaDeSangre(string nombre) : base(nombre)
-    {
-    }
-
     public void PrefabsSetters(Transform firePoint, Transform prefabRotacion)
     {
         this.prefabRotacion = prefabRotacion;

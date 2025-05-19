@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2125262412957643305}
   - component: {fileID: 5649911425583986072}
   m_Layer: 0
-  m_Name: RellenoMana
+  m_Name: RellenoVida
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 2794682299168752561}
   - component: {fileID: 4547313721294965799}
   m_Layer: 0
-  m_Name: MarcoMana
+  m_Name: MarcoVida
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 489827957246692088}
   - component: {fileID: 9047163142841457958}
   m_Layer: 0
-  m_Name: FondoMana
+  m_Name: FondoVida
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
