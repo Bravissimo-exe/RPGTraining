@@ -1594,6 +1594,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1836246358}
     m_Modifications:
+    - target: {fileID: 5649911425583986072, guid: 20330f11f78931141a206cbb47abba91, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7690776633845736168, guid: 20330f11f78931141a206cbb47abba91, type: 3}
       propertyPath: m_Name
       value: PanelDeVida
